@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    
+      <title>Detour Route Mapping</title>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+      <link rel="stylesheet" href="assets/css/main.css">
+      
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins)
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>  -->
+
+      <!-- Upgrading the jquery and jquery UI verison with the latest CDN versions-->
+      <script  src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
+
+      <!-- Latest compiled and minified JavaScript 
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+
+      <script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+      <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
+      <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
+    
+      <style>
+            .legend-check {
+            display: none;
+            }
+            .mapboxgl-popup {
+            max-width: 400px;
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            }  
+            .legend-button{
+              height: 35px;
+              width: 35px;
+              background: transparent;
+            }
+            .shadowfilter {
+            -webkit-filter: drop-shadow(0px 0px 0px #fff);
+            -webkit-transition: all 0.5s linear;
+            -o-transition: all 0.5s linear;
+            transition: all 0.5s linear;
+
+            }
+            .shadowfilter:hover {
+            -webkit-filter: drop-shadow(0px 0px 15px #fe0000) brightness(130%);
+            }
+            .fancy {
+            -webkit-filter: drop-shadow(0px 0px 15px #fe0000) brightness(130%);
+            }
+      </style>
+  </head>
+  
+  <body>
+<!-- Start Main Body -->
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                <div class="navbar-brand">
+                    <a id="header-link" href="http://www.dvrpc.org" target="_blank">
+                    <img id="dvrpc-logo" src="assets/img/dvrpc_logo_small.png" alt="DVRPC logo"/>
+                    <p id="header-link-text">Detour Route Mapping</p>
+                    </a>
+                </div>
+
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                    <button type="button" style=" margin:10px 10px 0px 4px;float:right;color:#2e5c95;background-color:#d9dadc;" class="btn btn-sm"<a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" onclick="$('#aboutModal').modal('show'); return false;"><i class="fa fa-info-circle" style="color:#2e5c95"></i>&nbsp;&nbsp;<b>About</b></a>
+                    </button>
+                    </ul>
+                </div>
+
+            </div>
+    </div>
+ 
+
+<div class="row" id="container">
+
+    <div class="col-sm-4 col-lg-4" id="sidebar" style="padding: 10px; overflow: auto;">
+   
+        <div class="panel-group">
+
+
+        <div id="cnty-list" class="feature-row" style="margin-left:15px"> Zoom to a County<br>
+        <button class="button button5" href='javascript:void(0);' id='zoomtobucks'>Bucks</button>
+        <button class="button button5" href='javascript:void(0);' id='zoomtochester'>Chester</button>
+        <button class="button button5" href='javascript:void(0);' id='zoomtodelaware'>Delaware</button>
+        <button class="button button5" href='javascript:void(0);' id='zoomtomontgomery'>Montgomery</button>
+        <button class="button button5" href='javascript:void(0);' id='zoomtophiladelphia'>Philadelphia</button>
+        </div>
+                   <!-- Legend -->
+          <div id="legend-stack"> Zoom to a route
+            <div class="legend-icons" value="EI"  id="EI">
+              <label>
+              <input type="checkbox" checked id="EI" class="legend-check" name="layerTCDI" >
+              <img src="assets/img/76.png" class="legend-button" href='javascript:void(0);' id='I076' data-placement="bottom" data-toggle="tooltip" data-trigger="hover" data-title="Click to toggle 2015 Projects"/>
+              </label>
+            </div>  
+            <div class="legend-icons" value="ES"  id="ES">
+              <label>
+              <input type="checkbox" checked id="ES" class="legend-check" name="layerTCDI">
+              <img src="assets/img/95.png" class="legend-button fancy" data-placement="bottom" data-toggle="tooltip" data-trigger="hover" data-title="Click to toggle 2015 Projects"/>
+              </label>
+            </div> 
+            <div class="legend-icons" value="GB"  id="GB">
+              <label>
+              <input type="checkbox" checked id="GB" class="legend-check" name="layerTCDI">
+              <img src="assets/img/shields/gspkwy.png" class="legend-button shadowfilter" data-placement="bottom" data-toggle="tooltip" data-trigger="hover" data-title="Click to toggle 2015 Projects"/>
+              </label>
+            </div> 
+            <div class="legend-icons" value="SPG"  id="SPG">
+              <label>
+              <input type="checkbox" checked id="SPG" class="legend-check" name="layerTCDI">
+              <img src="assets/img/shields/n90.png" class="legend-button shadowfilter" data-placement="bottom" data-toggle="tooltip" data-trigger="hover" data-title="Click to toggle 2015 Projects"/>
+              </label>
+            </div>  
+        </div> 
+   
+        <!-- End Legend -->
+             <div id="inforesults" class="panel panel-primary">
+                 <!-- <div class="panel-heading">
+                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_" href="">
+                          <font color="white"><strong>Project Info</strong></font>
+                      </a>
+                  </div> -->
+              <div id="overlay-layers" class="panel-collapse collapse in">
+                  <div id="box" > </div>                 
+                  <div id="resultsheader" ></div>
+                  <div id='info' class='info'></div>
+                  <div id="carousel-example-generic" class="carousel" data-ride="carousel"></div>
+              </div>
+            </div>
+
+         </div> 
+
+        <div id="howto" class="alert alert-info alert-block nomobile" style="margin-top:10px;">
+            <button class="close" data-dismiss="alert" type="button">×</button>
+            <h3 style="margin: 0;">Navigating the Data</h3>
+            <p>This map showcases four categories of projects in the DVRPC region that reduce energy use and greenhouse gas emissions. Clicking on a project will display detailed information, pictures, and some of the ways projects are reducing energy use and greenhouse gas emissions.</p>
+            <p>DVRPC is actively seeking additions to this map! Please contact Adam Beam (<a class="one" href="mailto:abeam@dvrpc.org"> abeam@dvrpc.org </a>) if you are aware of a project to be considered for inclusion. In addition, please contact Adam if you are the owner or operator of a project on this map and would like to correct or update information, or if you would like the project removed. </p>
+        </div>
+
+    </div>
+    
+        <!-- Map -->
+    <div class="col-sm-8 col-lg-8" id="map" style="overflow:hidden">
+      
+       <div class="quakeInfo">
+      <div><strong>Route:</strong>&nbsp;<span id="mag"></span></div>
+      <div><strong>Location:</strong>&nbsp;<span id="loc"></span></div>
+      </div>
+      
+    </div>
+   
+   
+</div>      
+
+<!-- Zoom -->
+      </div>
+        <a href='javascript:void(0);' id='zoomtoregion'></a>
+</div>
+            <!-- About Modal -->
+        <div class="modal fade" id="aboutModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h5 class="modal-title">Detour Route Mapping</h5>
+                        </div>
+                        <div class="modal-body">
+                             <ul id="aboutTabs" class="nav nav-tabs">
+                                <li class="active"><a href="#about" data-toggle="tab"><i class="icon-info-sign"></i>&nbsp;About</a></li> 
+                                <li><a href="#contact" data-toggle="tab"><i class="icon-exclamation-sign"></i>&nbsp;Contact</a></li>
+                                <li><a href="#disclaimer" data-toggle="tab"><i class="icon-exclamation-sign"></i>&nbsp;Disclaimer</a></li>
+                            </ul>
+                            <div id="aboutTabsContent" class="tab-content" style="padding-top: 10px;">
+                                <div class="tab-pane fade active in" id="about">
+                                     <div><p>IDRuM Reboot<br><br>
+
+                                     
+ 
+                                    </div>                                 
+                                </div>
+                                <div class="tab-pane fade" id="contact"> 
+                                     <p>
+                                        <h4>For more information, contact:</h4>
+                                            <address>
+                                            People who know about roads and stuff<br/>
+                                            </address>
+                                        </p>  
+                                </div>
+                                <div class="tab-pane fade" id="disclaimer"> 
+                                        <p>This web page is a public resource of general information. The Delaware Valley Regional Planning Commission (DVRPC) makes no warranty, 
+                                        representation, or guarantee as to the content, sequence, accuracy, timeliness, or completeness of any of the spatial data or database 
+                                        information provided herein. DVRPC and partner state, local, and other agencies shall assume no liability for errors, omissions, or 
+                                        inaccuracies in the information provided regardless of how caused; or any decision made or action taken or not taken by any person relying 
+                                        on any information or data furnished within.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+  
+<script src="assets/js/app.js"></script>
+
+<script>var _gaq=[['_setAccount','UA-9825778-1'],['_trackPageview']];(function(d){var g=d.createElement('script'),s=d.scripts[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document))</script>
+
+<!-- End Main Body -->
+  </body>
+</html>
