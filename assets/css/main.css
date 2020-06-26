@@ -170,7 +170,7 @@ grey - #545454
         font-family: sans-serif;
         margin: 15px 10px 0px 5px;
         padding: 5px;
-        width: 150px;
+        width: 250px;
         border: 2px solid black;
         font-size: 14px;
         color: #222;
@@ -178,6 +178,14 @@ grey - #545454
         border-radius: 3px;
         z-index: 1001;         
       }
+      #legendBox {
+            position: absolute;
+            bottom: 33px;
+            left: 5px;
+            z-index: 1001;
+            padding: 8px;
+            background: rgba(255,255,255, 0.85);
+        }
     #legend-stack {
         display: flex;
         justify-content: space-between;
@@ -256,19 +264,11 @@ grey - #545454
     #info{
         padding: 10px;
     }
-    .carousel {
-        padding:5px;
-    }
-
-.rhEL {background-color:#eb2226;color:white;font-size: 18px;}
-.rhES {background-color:#19bbb8;color:white;font-size: 18px;}
-.rhGB {background-color:#96c93d;color:white;font-size: 18px;}
-.rhSPG {background-color: #fdbf12;color:white;font-size: 18px;}
 .button {
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
-  padding: 8px 16px;
+  padding: 4px 8px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -328,4 +328,18 @@ grey - #545454
 .button5:hover {
   background-color: #555555;
   color: white;
+}
+.ct-existing {
+    color: #FFA500;
+    font-size: 25px;
+    vertical-align: middle;
+}
+.other {
+    color: #ff4500;
+    display: inline-block;
+    line-height: 25px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    vertical-align: middle;
 }

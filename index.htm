@@ -92,76 +92,62 @@
    
         <div class="panel-group">
 
-
         <div id="cnty-list" class="feature-row" style="margin-left:15px"> Zoom to a County<br>
-        <button class="button button5" href='javascript:void(0);' id='zoomtobucks'>Bucks</button>
-        <button class="button button5" href='javascript:void(0);' id='zoomtochester'>Chester</button>
-        <button class="button button5" href='javascript:void(0);' id='zoomtodelaware'>Delaware</button>
-        <button class="button button5" href='javascript:void(0);' id='zoomtomontgomery'>Montgomery</button>
-        <button class="button button5" href='javascript:void(0);' id='zoomtophiladelphia'>Philadelphia</button>
+          <button class="button button5" href='javascript:void(0);' id='zoomtobucks'>Bucks</button>
+          <button class="button button5" href='javascript:void(0);' id='zoomtochester'>Chester</button>
+          <button class="button button5" href='javascript:void(0);' id='zoomtodelaware'>Delaware</button>
+          <button class="button button5" href='javascript:void(0);' id='zoomtomontgomery'>Montgomery</button>
+          <button class="button button5" href='javascript:void(0);' id='zoomtophiladelphia'>Philadelphia</button>
         </div>
                    <!-- Legend -->
-          <div id="legend-stack"> Zoom to a route
+        <div id="legend-stack"> Zoom to a route <br>
             <div class="legend-icons" value="EI"  id="EI">
               <label>
               <input type="checkbox" checked id="EI" class="legend-check" name="layerTCDI" >
-              <img src="assets/img/76.png" class="legend-button" href='javascript:void(0);' id='I076' data-placement="bottom" data-toggle="tooltip" data-trigger="hover" data-title="Click to toggle 2015 Projects"/>
+              <img src="assets/img/shields/I076.png" class="legend-button" href='javascript:void(0);' id='I076' data-placement="bottom" data-toggle="tooltip" data-trigger="hover" data-title="Click to toggle 2015 Projects"/>
               </label>
             </div>  
             <div class="legend-icons" value="ES"  id="ES">
               <label>
               <input type="checkbox" checked id="ES" class="legend-check" name="layerTCDI">
-              <img src="assets/img/95.png" class="legend-button fancy" data-placement="bottom" data-toggle="tooltip" data-trigger="hover" data-title="Click to toggle 2015 Projects"/>
+              <img src="assets/img/shields/I095.png" class="legend-button" data-placement="bottom" data-toggle="tooltip" data-trigger="hover" data-title="Click to toggle 2015 Projects"/>
               </label>
             </div> 
             <div class="legend-icons" value="GB"  id="GB">
               <label>
               <input type="checkbox" checked id="GB" class="legend-check" name="layerTCDI">
-              <img src="assets/img/shields/gspkwy.png" class="legend-button shadowfilter" data-placement="bottom" data-toggle="tooltip" data-trigger="hover" data-title="Click to toggle 2015 Projects"/>
+              <img src="assets/img/shields/PA100.png" class="legend-button shadowfilter" data-placement="bottom" data-toggle="tooltip" data-trigger="hover" data-title="Click to toggle 2015 Projects"/>
               </label>
             </div> 
             <div class="legend-icons" value="SPG"  id="SPG">
               <label>
               <input type="checkbox" checked id="SPG" class="legend-check" name="layerTCDI">
-              <img src="assets/img/shields/n90.png" class="legend-button shadowfilter" data-placement="bottom" data-toggle="tooltip" data-trigger="hover" data-title="Click to toggle 2015 Projects"/>
+              <img src="assets/img/shields/US001.png" class="legend-button shadowfilter" data-placement="bottom" data-toggle="tooltip" data-trigger="hover" data-title="Click to toggle 2015 Projects"/>
               </label>
             </div>  
         </div> 
-   
-        <!-- End Legend -->
-             <div id="inforesults" class="panel panel-primary">
-                 <!-- <div class="panel-heading">
-                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_" href="">
-                          <font color="white"><strong>Project Info</strong></font>
-                      </a>
-                  </div> -->
-              <div id="overlay-layers" class="panel-collapse collapse in">
-                  <div id="box" > </div>                 
-                  <div id="resultsheader" ></div>
-                  <div id='info' class='info'></div>
-                  <div id="carousel-example-generic" class="carousel" data-ride="carousel"></div>
-              </div>
-            </div>
 
          </div> 
 
         <div id="howto" class="alert alert-info alert-block nomobile" style="margin-top:10px;">
             <button class="close" data-dismiss="alert" type="button">×</button>
-            <h3 style="margin: 0;">Navigating the Data</h3>
-            <p>This map showcases four categories of projects in the DVRPC region that reduce energy use and greenhouse gas emissions. Clicking on a project will display detailed information, pictures, and some of the ways projects are reducing energy use and greenhouse gas emissions.</p>
-            <p>DVRPC is actively seeking additions to this map! Please contact Adam Beam (<a class="one" href="mailto:abeam@dvrpc.org"> abeam@dvrpc.org </a>) if you are aware of a project to be considered for inclusion. In addition, please contact Adam if you are the owner or operator of a project on this map and would like to correct or update information, or if you would like the project removed. </p>
+            <h3 style="margin: 0;">How to Use</h3>
+            <p>- Zoom to your area of intertest and click on the incident location segment to view detailed PennDOT Emergency Detour Routes for that particular location.<br><br>
+              - Use the quick zoom to tool above to get to your location or simple use the map to find your spot.</p>
         </div>
 
     </div>
     
         <!-- Map -->
     <div class="col-sm-8 col-lg-8" id="map" style="overflow:hidden">
-      
-       <div class="quakeInfo">
-      <div><strong>Route:</strong>&nbsp;<span id="mag"></span></div>
-      <div><strong>Location:</strong>&nbsp;<span id="loc"></span></div>
-      </div>
-      
+        <div class="quakeInfo">
+          <div><span id="mag"></span>&nbsp;&nbsp;<span id="loc"></span></div>
+        </div>
+           <div id="legendBox" class="legend">
+            <i class="glyphicon glyphicon-minus ct-existing"></i>Incident Location<br>
+            <i class="fa fa-circle other"></i>Limited Access Intersection
+    </div>
+
     </div>
    
    
@@ -187,10 +173,7 @@
                             </ul>
                             <div id="aboutTabsContent" class="tab-content" style="padding-top: 10px;">
                                 <div class="tab-pane fade active in" id="about">
-                                     <div><p>IDRuM Reboot<br><br>
-
-                                     
- 
+                                     <div><p>DVRPC in partnership with PennDOT District 6, has developed the web-based Interactive Detour Route Mapping (IDRuM) application that organizes all existing PennDOT Emergency Detour Routes within the Southeastern Pennsylvania region into a manageable, easy-to-use interface. DVRPC has worked with PennDOT District 6 to update and reformat the detour route maps for all limited access highways within the region, replacing outdated paper maps with digital PDF maps.IDRuM compiles the PDF detour maps into a simple, "point-and-click" application.</p> 
                                     </div>                                 
                                 </div>
                                 <div class="tab-pane fade" id="contact"> 

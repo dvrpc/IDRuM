@@ -262,15 +262,16 @@ map.on('load', function () {
         map.on('mousemove', 'route-viz', e => {
           map.getCanvas().style.cursor = 'pointer';
           // Set variables equal to the current feature's magnitude, location, and time
-          var quakeMagnitude = e.features[0].properties.Route;
-          var quakeLocation = e.features[0].properties.Location;
+         // var quakeMagnitude = e.features[0].properties.Route;
+         var quakeMagnitude = '<img style="height:35px;width:35px" src="assets/img/shields/'+ e.features[0].properties.Route +'.png"/>';
+          var quakeLocation = e.features[0].properties.Location ;
           
           
       //    var quakeDate = new Date(e.features[0].properties.time);
 
           if (e.features.length > 0) {
             // Display the magnitude, location, and time in the sidebar
-            magDisplay.textContent = quakeMagnitude;
+            magDisplay.innerHTML = quakeMagnitude;
             locDisplay.textContent = quakeLocation;
        //     dateDisplay.textContent = quakeDate;
 
@@ -316,7 +317,7 @@ map.on('load', function () {
           quakeID = null;
    
           // Remove the information from the previously hovered feature from the sidebar
-          magDisplay.textContent = '';
+          magDisplay.innerHTML = '';
           locDisplay.textContent = '';
           // Reset the cursor style
           map.getCanvas().style.cursor = '';
