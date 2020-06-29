@@ -2,56 +2,15 @@
   var TTI, cnty;
   var hoveredStateId = null;
  // $('#aboutModal').modal('show');
+     // Target the span elements used in the sidebar
+  var magDisplay = document.getElementById('mag');
+  var locDisplay = document.getElementById('loc');
  $(document).on("mouseover", ".feature-row", function(e) {
   // alert("Hello! I am an alert box!!");
    //     highlight.clearLayers().addLayer(L.circleMarker([$(this).attr("lat"), $(this).attr("lng")], highlightStyle));
     });
 
 //$(document).on("mouseout", ".feature-row", clearHighlight);
-  // Zoom to Extent
-    document.getElementById('zoomtobucks').addEventListener('click', function () {
-        map.flyTo({
-            center: [-75.106870407001679,40.336933676997319], 
-            zoom: 9,
-            speed: 0.5
-        });
-    });
-    document.getElementById('zoomtochester').addEventListener('click', function () {
-      map.flyTo({
-          center: [-75.748451366853885,39.973209680949878], 
-          zoom: 9,
-          speed: 0.5
-      });
-    });
-      document.getElementById('zoomtodelaware').addEventListener('click', function () {
-      map.flyTo({
-          center: [-75.398773932333029,39.916606269175929], 
-          zoom: 10,
-          speed: 0.5
-      });
-    });
-      document.getElementById('zoomtomontgomery').addEventListener('click', function () {
-      map.flyTo({
-          center: [-75.367334983140267,40.210850123794955], 
-          zoom: 9,
-          speed: 0.5
-      });
-    });
-    document.getElementById('zoomtophiladelphia').addEventListener('click', function () {
-      map.flyTo({
-          center: [-75.13417520195253,40.007663105527399], 
-          zoom: 10,
-          speed: 0.5
-      });
-    });
-
-        document.getElementById('I076').addEventListener('click', function () {
-      map.flyTo({
-          center: [-75.13417520195253,40.007663105527399], 
-          zoom: 10,
-          speed: 0.5
-      });
-    });
 
         function signhoverIN (e) {
         //   var active = document.getElementsByTagName(e);
@@ -71,7 +30,8 @@
   // This adds the map
     var map = new mapboxgl.Map({
         container: 'map', 
-        style: 'mapbox://styles/mapbox/light-v9', 
+    //    style: 'mapbox://styles/mapbox/light-v9', 
+        style:'mapbox://styles/crvanpollard/ck5fpyqti0v971itf7edp2eyd',
         center: [-75.4, 40.15], 
         zoom: 8,
       //  bearing: 0, // Rotate Philly ~9° off of north, thanks Billy Penn.
@@ -94,7 +54,6 @@
         }
       }
     }
-
     // Add zoom and rotation controls to the map.
     map.addControl(new mapboxgl.NavigationControl(),['top-right']);
     map.addControl(new mapboxgl.AttributionControl(),'bottom-right');
@@ -108,40 +67,36 @@
         });
     });
 
-    // Target the span elements used in the sidebar
-      var magDisplay = document.getElementById('mag');
-      var locDisplay = document.getElementById('loc');
-
 map.on('load', function () {
-     var layers = map.getStyle().layers;
-      // Find the index of the first symbol layer in the map style
-      var firstSymbolId;
-      for (var i = 0; i < layers.length; i++) {
-      if (layers[i].type === 'symbol') {
-      firstSymbolId = layers[i].id;
-      break;
-      }
-      }
-        // Grey Mask
-        map.addLayer({
-            "id": "county2",
-            "type": "fill",
-            "source": {
-                type: 'vector',
-                url: 'https://tiles.dvrpc.org/data/dvrpc-municipal.json'
-            },
-            "source-layer": "county",
-            "layout": {},
-            paint: {
-            // 'fill-outline-color': '#f7c59f',
-             'fill-color': 'rgba(0,0,0,0.1)'
-            },
-            "filter": 
-            //["==","dvrpc","Yes"]
-            ["all",["!=","name","Chester"],["!=","name","Bucks"],["!=","name","Delaware"],["!=","name","Montgomery"],["!=","name","Philadelphia"]]
-        });
+           var layers = map.getStyle().layers;
+            // Find the index of the first symbol layer in the map style
+            var firstSymbolId;
+            for (var i = 0; i < layers.length; i++) {
+            if (layers[i].type === 'symbol') {
+            firstSymbolId = layers[i].id;
+            break;
+            }
+            }
+            // Grey Mask
+            map.addLayer({
+              "id": "county2",
+              "type": "fill",
+              "source": {
+                  type: 'vector',
+                  url: 'https://tiles.dvrpc.org/data/dvrpc-municipal.json'
+              },
+              "source-layer": "county",
+              "layout": {},
+              paint: {
+              // 'fill-outline-color': '#f7c59f',
+               'fill-color': 'rgba(0,0,0,0.1)'
+              },
+              "filter": 
+              //["==","dvrpc","Yes"]
+              ["all",["!=","name","Chester"],["!=","name","Bucks"],["!=","name","Delaware"],["!=","name","Montgomery"],["!=","name","Philadelphia"]]
+            });
 
-  map.addSource('cnty', {
+            map.addSource('cnty', {
             'type': 'geojson',
                'data':"https://arcgis.dvrpc.org/portal/rest/services/Boundaries/CountyBoundaries/FeatureServer/0/query?where=co_name+%3D+%27Bucks%27+or+co_name+%3D+%27Chester%27+or+co_name+%3D+%27Delaware%27+or+co_name+%3D+%27Montgomery%27+or+co_name+%3D+%27Philadelphia%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson"
             });
@@ -154,7 +109,7 @@ map.on('load', function () {
             'source': 'cnty',
             'layout': {},
             'paint': {
-            'line-color': '#627BC1'
+            'line-color': '#898989'
             }
             });
 
@@ -188,7 +143,7 @@ map.on('load', function () {
           'generateId': true // This ensures that all features have unique IDs
         });
 
-         map.addLayer({
+        map.addLayer({
           id: "route-viz",
           type: "line",
           source: 'route',
@@ -207,16 +162,14 @@ map.on('load', function () {
              5, 3
             ]
           }
-      });
+        });
 
          map.on("click", function(e) {
-        var features = map.queryRenderedFeatures(e.point, { layers: ["route-viz"] });
-        if (features.length) {
-          window.open('https://www.dvrpc.org/asp/idrum/Online/PDF/PA/PADist06/' + features[0].properties.CNTY +'/'+ features[0].properties.State + features[0].properties.County + features[0].properties.Route +'/'+ features[0].properties.Det_ID +'.pdf', '_blank');
-   
-      // https://www.dvrpc.org/asp/idrum/Online/PDF/PA/PADist06/Bucks/PABUCPA063/PABUCPA06301.pdf
-        }
-    });
+          var features = map.queryRenderedFeatures(e.point, { layers: ["route-viz"] });
+          if (features.length) {
+            window.open('https://www.dvrpc.org/asp/idrum/Online/PDF/PA/PADist06/' + features[0].properties.CNTY +'/'+ features[0].properties.State + features[0].properties.County + features[0].properties.Route +'/'+ features[0].properties.Det_ID +'.pdf', '_blank');
+             }
+        });
 
         // Add earthquakes as a layer and style it
         map.addLayer({
@@ -227,7 +180,7 @@ map.on('load', function () {
             // The feature-state dependent circle-radius expression will render
             // the radius size according to its magnitude when
             // a feature's hover state is set to true
-            'circle-radius': 5,
+            'circle-radius': 3,
             'circle-stroke-color': '#ffdb99',
             'circle-stroke-width': .3,
             // The feature-state dependent circle-color expression will render
@@ -238,24 +191,24 @@ map.on('load', function () {
         });
 
         map.addLayer({
-    "id": "clusters-label",
-    "type": "symbol",
-    "source": "earthquakes",
-    "layout": {
-      "text-field": "{Location}",
-      "text-font": ["Montserrat SemiBold", "Open Sans Semibold"],
-      "text-size": 10,
-      "text-anchor": "left",
-      "text-offset":[1,0]
-  //    "text-size": ["interpolate", ["linear"], ["zoom"], 8, 8, 12, 12]
-    },
-     "paint": {
-          "text-color": "#fff",
-          "text-halo-color":"#ff7440",
-          "text-halo-width": 2,
-          "text-halo-blur": 3
-        }
-  });
+          "id": "clusters-label",
+          "type": "symbol",
+          "source": "earthquakes",
+          "layout": {
+            "text-field": "{Location}",
+            "text-font": ["Montserrat SemiBold", "Open Sans Semibold"],
+            "text-size": 10,
+            "text-anchor": "left",
+            "text-offset":[1,0]
+        //    "text-size": ["interpolate", ["linear"], ["zoom"], 8, 8, 12, 12]
+          },
+           "paint": {
+                "text-color": "#ff7440",
+                "text-halo-color":"#fff",
+                "text-halo-width": 2,
+                "text-halo-blur": 3
+              }
+        });
 
         var quakeID = null;
 
@@ -263,16 +216,19 @@ map.on('load', function () {
           map.getCanvas().style.cursor = 'pointer';
           // Set variables equal to the current feature's magnitude, location, and time
          // var quakeMagnitude = e.features[0].properties.Route;
-         var quakeMagnitude = '<img style="height:35px;width:35px" src="assets/img/shields/'+ e.features[0].properties.Route +'.png"/>';
-          var quakeLocation = e.features[0].properties.Location ;
+    //     var quakeMagnitude = '<img style="height:35px;width:35px" src="assets/img/shields/'+ e.features[0].properties.Route +'.png"/>';
+     //     var quakeLocation = e.features[0].properties.Location ;
           
           
       //    var quakeDate = new Date(e.features[0].properties.time);
 
           if (e.features.length > 0) {
+
+            var content = '<img src="assets/img/shields/'+ e.features[0].properties.Route +'.png"/>'+ e.features[0].properties.Location;
             // Display the magnitude, location, and time in the sidebar
-            magDisplay.innerHTML = quakeMagnitude;
-            locDisplay.textContent = quakeLocation;
+            magDisplay.innerHTML = content;
+         //   locDisplay.textContent = quakeLocation;
+
        //     dateDisplay.textContent = quakeDate;
 
             // When the mouse moves over the earthquakes-viz layer, update the

@@ -1,9 +1,10 @@
 /*
 green - #5cd89f
 orange - #ff5c3e
-yellow - ffd36e
+yellow - #ffd36e
 teal - #005d68
 grey - #545454
+grey2 - #f7f7f7
 */    
 
 
@@ -27,7 +28,7 @@ grey - #545454
     }
     #sidebar {  
     border-right: 1px solid #E2E2E2;
-    background-color:#ffffff;
+    background-color:#f7f7f7;
     }
     .navbar-brand {
     padding: 8px 15px;
@@ -37,6 +38,48 @@ grey - #545454
         margin-top: -11px;
         overflow: auto;
         border-radius: 0px;
+    }
+    .text-on-pannel {
+      background: #fff none repeat scroll 0 0;
+      height: auto;
+      margin-left: 1px;
+      padding: 2px 3px;
+      position: absolute;
+      margin-top: -35px;
+      border: 1px solid #ff5c3e;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .panel {
+      /* for text on pannel */
+      margin: 35px 0px 0px 15px !important;
+      background-color: #E4E3DB;
+    }
+    .p2{
+      /* for text on pannel */
+      margin: 40px 0px 0px 15px !important;
+    }
+    .panel-body {
+      padding-top: 15px !important;
+      padding-bottom: 0px !important;
+    }
+    .panel-primary{
+       border-color:  #ff5c3e;
+    }
+    .legend-button{
+      height: 35px;
+      width: 35px;
+      background: transparent;
+    }
+    .shadowfilter {
+    -webkit-filter: drop-shadow(0px 0px 0px #fff);
+    -webkit-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+
+    }
+    .shadowfilter:hover {
+    -webkit-filter: drop-shadow(0px 0px 15px #ff5c3e) brightness(130%);
     }
     #header-link{
     display: flex;
@@ -98,8 +141,8 @@ grey - #545454
     }
     #zoomtoregion{
     position: absolute;
-    top:160px;
-    right:6px;
+    top:110px;
+    right:12px;
     z-index:100;
     background-color:white;
     color:black;
@@ -122,6 +165,8 @@ grey - #545454
     /* popup style */
     .mapboxgl-popup {
     padding-bottom: 30px;
+    max-width: 400px;
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     }
     .mapboxgl-popup-close-button {
     display:none;
@@ -164,40 +209,51 @@ grey - #545454
     .mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
     border-bottom-color: #91c949;
     }
+
+div#row {
+  overflow: hidden; /*This is a clearfix because all it's children are floated*/
+}
+
+div#row span {
+  display: block;
+}
+
+div#row span img {
+  display: block;
+  float: left;
+  width: 50px;
+  margin-right: 10px;
+}
     /* Map Layers */
-       .quakeInfo {
+   .quakeInfo {
+    position: absolute;
+    font-family: sans-serif;
+    margin: 15px 10px 0px 5px;
+    padding: 5px;
+    width: 250px;
+    border: 2px solid black;
+    font-size: 14px;
+    color: #222;
+    background-color: #fff;
+    border-radius: 3px;
+    z-index: 1001;         
+  }
+  #legendBox {
         position: absolute;
-        font-family: sans-serif;
-        margin: 15px 10px 0px 5px;
-        padding: 5px;
-        width: 250px;
-        border: 2px solid black;
-        font-size: 14px;
-        color: #222;
-        background-color: #fff;
-        border-radius: 3px;
-        z-index: 1001;         
-      }
-      #legendBox {
-            position: absolute;
-            bottom: 33px;
-            left: 5px;
-            z-index: 1001;
-            padding: 8px;
-            background: rgba(255,255,255, 0.85);
-        }
+        bottom: 33px;
+        right: 10px;
+        z-index: 1001;
+        padding: 8px;
+        background: rgba(255,255,255, 0.85);
+    }
     #legend-stack {
         display: flex;
         justify-content: space-between;
         width: 100%;
-        height: 115px;
-        margin-left: 8px;
-        background-color: white;
+        margin-left: 0px;
+        background-color: #E4E3DB;
         border-radius: 4px;
     }   
-    .legend-icons{
-      width: 23%;
-    } 
     .legend-icons img {
       display: block;
       margin: 5px 0px 5px 5px;
@@ -278,55 +334,14 @@ grey - #545454
   cursor: pointer;
 }
 
-.button1 {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #4CAF50;
-}
-
-.button1:hover {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.button2 {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #008CBA;
-}
-
-.button2:hover {
-  background-color: #008CBA;
-  color: white;
-}
-
-.button3 {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #f44336;
-}
-
-.button3:hover {
-  background-color: #f44336;
-  color: white;
-}
-
-.button4 {
-  background-color: white;
-  color: black;
-  border: 2px solid #e7e7e7;
-}
-
-.button4:hover {background-color: #e7e7e7;}
-
 .button5 {
-  background-color: white;
-  color: black;
-  border: 2px solid #555555;
+  background-color: #ff8c3e;
+  color: white;
+  border: 2px solid #ff5c3e;
 }
 
 .button5:hover {
-  background-color: #555555;
+  background-color:#ff5c3e;
   color: white;
 }
 .ct-existing {

@@ -24,34 +24,6 @@
       <script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
       <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
       <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
-    
-      <style>
-            .legend-check {
-            display: none;
-            }
-            .mapboxgl-popup {
-            max-width: 400px;
-            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-            }  
-            .legend-button{
-              height: 35px;
-              width: 35px;
-              background: transparent;
-            }
-            .shadowfilter {
-            -webkit-filter: drop-shadow(0px 0px 0px #fff);
-            -webkit-transition: all 0.5s linear;
-            -o-transition: all 0.5s linear;
-            transition: all 0.5s linear;
-
-            }
-            .shadowfilter:hover {
-            -webkit-filter: drop-shadow(0px 0px 15px #fe0000) brightness(130%);
-            }
-            .fancy {
-            -webkit-filter: drop-shadow(0px 0px 15px #fe0000) brightness(130%);
-            }
-      </style>
   </head>
   
   <body>
@@ -90,72 +62,203 @@
 
     <div class="col-sm-4 col-lg-4" id="sidebar" style="padding: 10px; overflow: auto;">
    
-        <div class="panel-group">
-
-        <div id="cnty-list" class="feature-row" style="margin-left:15px"> Zoom to a County<br>
-          <button class="button button5" href='javascript:void(0);' id='zoomtobucks'>Bucks</button>
-          <button class="button button5" href='javascript:void(0);' id='zoomtochester'>Chester</button>
-          <button class="button button5" href='javascript:void(0);' id='zoomtodelaware'>Delaware</button>
-          <button class="button button5" href='javascript:void(0);' id='zoomtomontgomery'>Montgomery</button>
-          <button class="button button5" href='javascript:void(0);' id='zoomtophiladelphia'>Philadelphia</button>
-        </div>
-                   <!-- Legend -->
-        <div id="legend-stack"> Zoom to a route <br>
-            <div class="legend-icons" value="EI"  id="EI">
-              <label>
-              <input type="checkbox" checked id="EI" class="legend-check" name="layerTCDI" >
-              <img src="assets/img/shields/I076.png" class="legend-button" href='javascript:void(0);' id='I076' data-placement="bottom" data-toggle="tooltip" data-trigger="hover" data-title="Click to toggle 2015 Projects"/>
-              </label>
-            </div>  
-            <div class="legend-icons" value="ES"  id="ES">
-              <label>
-              <input type="checkbox" checked id="ES" class="legend-check" name="layerTCDI">
-              <img src="assets/img/shields/I095.png" class="legend-button" data-placement="bottom" data-toggle="tooltip" data-trigger="hover" data-title="Click to toggle 2015 Projects"/>
-              </label>
-            </div> 
-            <div class="legend-icons" value="GB"  id="GB">
-              <label>
-              <input type="checkbox" checked id="GB" class="legend-check" name="layerTCDI">
-              <img src="assets/img/shields/PA100.png" class="legend-button shadowfilter" data-placement="bottom" data-toggle="tooltip" data-trigger="hover" data-title="Click to toggle 2015 Projects"/>
-              </label>
-            </div> 
-            <div class="legend-icons" value="SPG"  id="SPG">
-              <label>
-              <input type="checkbox" checked id="SPG" class="legend-check" name="layerTCDI">
-              <img src="assets/img/shields/US001.png" class="legend-button shadowfilter" data-placement="bottom" data-toggle="tooltip" data-trigger="hover" data-title="Click to toggle 2015 Projects"/>
-              </label>
-            </div>  
-        </div> 
-
-         </div> 
-
         <div id="howto" class="alert alert-info alert-block nomobile" style="margin-top:10px;">
             <button class="close" data-dismiss="alert" type="button">×</button>
-            <h3 style="margin: 0;">How to Use</h3>
+            <h4 style="margin: 0;">Quick Guide</h4>
             <p>- Zoom to your area of intertest and click on the incident location segment to view detailed PennDOT Emergency Detour Routes for that particular location.<br><br>
               - Use the quick zoom to tool above to get to your location or simple use the map to find your spot.</p>
         </div>
 
+        <div class="panel panel-primary">
+          <div class="panel-body">
+            <h4 class="text-on-pannel text-primary button5" href='javascript:void(0);' id='zoomtobucks'><strong class="text-uppercase"> Bucks </strong></h4>
+             <!-- Legend -->
+              <div id="legend-stack">
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/I095.png" class="legend-button shadowfilter" href='javascript:void(0);' id='I095B'/>
+                    </label>
+                  </div>  
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/US001.png" class="legend-button shadowfilter" href='javascript:void(0);' id='US001B'/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/US013.png" class="legend-button shadowfilter" href='javascript:void(0);' id='US013B'/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons" >
+                    <label>
+                    <img src="assets/img/shields/US202.png" class="legend-button shadowfilter" href='javascript:void(0);' id='US202B'/>
+                    </label>
+                  </div>  
+                   <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/PA063.png" class="legend-button shadowfilter" href='javascript:void(0);' id='PA063B'/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons" >
+                    <label>
+                    <img src="assets/img/shields/PA309.png" class="legend-button shadowfilter" href='javascript:void(0);' id='PA309B'/>
+                    </label>
+                  </div>  
+              </div> 
+          </div>
+        </div>
+
+        <!-- Start Shield Panel -->
+        <div class="panel panel-primary p2">
+          <div class="panel-body">
+            <h4 class="text-on-pannel text-primary button5" href='javascript:void(0);' id='zoomtochester'><strong class="text-uppercase"> Chester </strong></h4>
+              <div id="legend-stack">
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/US001.png" class="legend-button shadowfilter" href='javascript:void(0);' id='US001C'/>
+                    </label>
+                  </div>  
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/US030.png" class="legend-button shadowfilter" href='javascript:void(0);' id='US030C'/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/US202.png" class="legend-button shadowfilter" href='javascript:void(0);' id='US202C'/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/PA100.png" class="legend-button shadowfilter" href='javascript:void(0);' id='PA100C'/>
+                    </label>
+                  </div>  
+              </div> 
+          </div>
+        </div>
+        <!-- End Shield Panel -->
+        <!-- Start Shield Panel -->
+        <div class="panel panel-primary p2">
+          <div class="panel-body">
+            <h4 class="text-on-pannel text-primary button5" href='javascript:void(0);' id='zoomtodelaware'><strong class="text-uppercase"> Delaware </strong></h4>
+              <div id="legend-stack">
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/I095.png" class="legend-button shadowfilter" href='javascript:void(0);' id='I095D'/>
+                    </label>
+                  </div>  
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/I476.png" class="legend-button shadowfilter" href='javascript:void(0);' id='I476D'/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/US001.png" class="legend-button shadowfilter" href='javascript:void(0);' id='US001D'/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/US322.png" class="legend-button shadowfilter" href='javascript:void(0);' id='US322D'/>
+                    </label>
+                  </div>  
+              </div> 
+          </div>
+        </div>
+        <!-- End Shield Panel -->
+        <!-- Start Shield Panel -->
+        <div class="panel panel-primary p2">
+          <div class="panel-body">
+            <h4 class="text-on-pannel text-primary button5" href='javascript:void(0);' id='zoomtomontgomery'><strong class="text-uppercase"> Montgomery</strong></h4>
+              <div id="legend-stack">
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/I076.png" class="legend-button shadowfilter" href='javascript:void(0);' id='I076M'/>
+                    </label>
+                  </div>  
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/I476.png" class="legend-button shadowfilter" href='javascript:void(0);' id='I476M'/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/US202.png" class="legend-button shadowfilter" href='javascript:void(0);' id='US202M'/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/US422.png" class="legend-button shadowfilter" href='javascript:void(0);' id='US422M'/>
+                    </label>
+                  </div>  
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/PA100.png" class="legend-button shadowfilter" href='javascript:void(0);' id='PA100M'/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/PA309.png" class="legend-button shadowfilter" href='javascript:void(0);' id='PA309M'/>
+                    </label>
+                  </div>  
+              </div> 
+          </div>
+        </div>
+      <!-- End Shield Panel -->
+      <!-- Start Shield Panel -->
+        <div class="panel panel-primary p2">
+          <div class="panel-body">
+            <h4 class="text-on-pannel text-primary button5" href='javascript:void(0);' id='zoomtophiladelphia'><strong class="text-uppercase"> Philadelphia </strong></h4>
+              <div id="legend-stack">
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/I076.png" class="legend-button shadowfilter" href='javascript:void(0);' id='I076P'/>
+                    </label>
+                  </div>  
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/I095.png" class="legend-button shadowfilter" href='javascript:void(0);' id='I095P'/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/I676.png" class="legend-button shadowfilter" href='javascript:void(0);' id='I676P'/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/US001.png" class="legend-button shadowfilter" href='javascript:void(0);' id='US001P'/>
+                    </label>
+                  </div>  
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/PA063.png" class="legend-button shadowfilter" href='javascript:void(0);' id='PA063P'/>
+                    </label>
+                  </div>  
+              </div> 
+          </div>
+        </div>
+      <!-- End Shield Panel -->
     </div>
     
         <!-- Map -->
     <div class="col-sm-8 col-lg-8" id="map" style="overflow:hidden">
-        <div class="quakeInfo">
-          <div><span id="mag"></span>&nbsp;&nbsp;<span id="loc"></span></div>
-        </div>
+          
+          <div class="quakeInfo">
+            <div id="row"><span id="mag"></span></div>
+          </div>
+          
            <div id="legendBox" class="legend">
             <i class="glyphicon glyphicon-minus ct-existing"></i>Incident Location<br>
             <i class="fa fa-circle other"></i>Limited Access Intersection
+          </div>
+           <!-- Zoom -->
+        <a href='javascript:void(0);' id='zoomtoregion'></a>   
     </div>
-
-    </div>
-   
    
 </div>      
-
-<!-- Zoom -->
       </div>
-        <a href='javascript:void(0);' id='zoomtoregion'></a>
+
 </div>
             <!-- About Modal -->
         <div class="modal fade" id="aboutModal">
@@ -199,7 +302,7 @@
 
   
 <script src="assets/js/app.js"></script>
-
+<script src="assets/js/zoom.js"></script>
 <script>var _gaq=[['_setAccount','UA-9825778-1'],['_trackPageview']];(function(d){var g=d.createElement('script'),s=d.scripts[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document))</script>
 
 <!-- End Main Body -->
