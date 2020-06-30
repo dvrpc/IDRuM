@@ -30,7 +30,7 @@
   // This adds the map
     var map = new mapboxgl.Map({
         container: 'map', 
-    //    style: 'mapbox://styles/mapbox/light-v9', 
+    //   style: 'mapbox://styles/mapbox/light-v9', 
         style:'mapbox://styles/crvanpollard/ck5fpyqti0v971itf7edp2eyd',
         center: [-75.4, 40.15], 
         zoom: 8,
@@ -157,12 +157,15 @@ map.on('load', function () {
             ['boolean', ['feature-state', 'hover'], false],
              '#FFFF00', '#FFA500'
             ],
-               "line-width": [ 'case',
+             "line-width": [ 'case',
             ['boolean', ['feature-state', 'hover'], false],
              5, 3
             ]
           }
-        });
+          //  firstSymbolId
+   //     });
+       //  }
+ }, 'admin-1-boundary-bg');
 
          map.on("click", function(e) {
           var features = map.queryRenderedFeatures(e.point, { layers: ["route-viz"] });
@@ -274,44 +277,11 @@ map.on('load', function () {
    
           // Remove the information from the previously hovered feature from the sidebar
           magDisplay.innerHTML = '';
-          locDisplay.textContent = '';
           // Reset the cursor style
           map.getCanvas().style.cursor = '';
-       //   signhoverOUT ();
         });
 
-  // Create a popup, but don't add it to the map yet.
-  var popup = new mapboxgl.Popup({
-    closeButton: false,
-    closeOnClick: false
-  });
 
-  function showPopup(e) {
-    // Updates the cursor to a hand (interactivity)
-    map.getCanvas().style.cursor = 'pointer';
-
-    // Show the popup at the coordinates with some data
-    popup.setLngLat(e.features[0].geometry.coordinates)
-      .setHTML(checkEmpty(e.features[0].properties.name))
-      .addTo(map);
-  }
-
-  function hidePopup() {
-    map.getCanvas().style.cursor = '';
-    popup.remove();
-  }
-
-  function checkEmpty(info) {
-    return (info) ? info : "No data";
-  }
-
-// CHANGE: Add layer names that need to be interactive
-
-  //map.on('mouseenter', 'hospitals', showPopup);
-  //map.on('mouseleave', 'hospitals', hidePopup);
-
-  map.on('mouseenter', 'route-viz', showPopup);
-  map.on('mouseleave', 'route-viz', hidePopup);
 
                 
     });
