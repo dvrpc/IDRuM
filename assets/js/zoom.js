@@ -220,4 +220,11 @@
           zoom: 13,
           speed: 0.5
       });
+    });  
+      document.getElementById('PAPHICB').addEventListener('click', function () {
+      map.flyTo({
+          center: [-75.1820350003,39.9610589997],
+          zoom: 11,
+          speed: 0.5
+      });
     });        

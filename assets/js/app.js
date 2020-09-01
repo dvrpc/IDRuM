@@ -5,12 +5,11 @@
      // Target the span elements used in the sidebar
   var magDisplay = document.getElementById('mag');
   var locDisplay = document.getElementById('loc');
+  
  $(document).on("mouseover", ".feature-row", function(e) {
   // alert("Hello! I am an alert box!!");
    //     highlight.clearLayers().addLayer(L.circleMarker([$(this).attr("lat"), $(this).attr("lng")], highlightStyle));
     });
-
-//$(document).on("mouseout", ".feature-row", clearHighlight);
 
         function signhoverIN (e) {
         //   var active = document.getElementsByTagName(e);
@@ -34,10 +33,7 @@
        // also uncomment line 168 admin-bg
     //    style:'mapbox://styles/crvanpollard/ck5fpyqti0v971itf7edp2eyd',
         center: [-75.4, 40.15], 
-        zoom: 8,
-      //  bearing: 0, // Rotate Philly ~9° off of north, thanks Billy Penn.
-      //  pitch: 20,
-      
+        zoom: 8,   
         attributionControl: false
     });
 
@@ -101,9 +97,7 @@ map.on('load', function () {
             'type': 'geojson',
                'data':"https://arcgis.dvrpc.org/portal/rest/services/Boundaries/CountyBoundaries/FeatureServer/0/query?where=co_name+%3D+%27Bucks%27+or+co_name+%3D+%27Chester%27+or+co_name+%3D+%27Delaware%27+or+co_name+%3D+%27Montgomery%27+or+co_name+%3D+%27Philadelphia%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson"
             });
-             
-            // The feature-state dependent fill-opacity expression will render the hover effect
-            // when a feature's hover state is set to true.
+            
             map.addLayer({
             'id': 'cnty-fills',
             'type': 'line',
@@ -113,23 +107,6 @@ map.on('load', function () {
             'line-color': '#898989'
             }
             });
-
-        // When a click event occurs on a feature in the cnty layer, open a popup at the
-        // location of the click, with description HTML from its properties.
-    /*   map.on('click', 'cnty-fills', function(e) {
-        new mapboxgl.Popup()
-        .setLngLat(e.lngLat)
-        .setHTML(e.features[0].properties.co_name)
-        .addTo(map);
-
-         map.flyTo({
-            center: (e.lngLat),
-            speed: 0.5,
-            zoom: 9
-                });
-           
-        });
-  */
 
         // When the map loads, add the data from the USGS earthquake API as a source
         map.addSource('earthquakes', {
@@ -181,15 +158,9 @@ map.on('load', function () {
           'type': 'circle',
           'source': 'earthquakes',
           'paint': {
-            // The feature-state dependent circle-radius expression will render
-            // the radius size according to its magnitude when
-            // a feature's hover state is set to true
             'circle-radius': 3,
             'circle-stroke-color': '#ffdb99',
             'circle-stroke-width': .3,
-            // The feature-state dependent circle-color expression will render
-            // the color according to its magnitude when
-            // a feature's hover state is set to true
             'circle-color':'#ff4500'
           }
         });
@@ -218,22 +189,12 @@ map.on('load', function () {
 
         map.on('mousemove', 'route-viz', e => {
           map.getCanvas().style.cursor = 'pointer';
-          // Set variables equal to the current feature's magnitude, location, and time
-         // var quakeMagnitude = e.features[0].properties.Route;
-    //     var quakeMagnitude = '<img style="height:35px;width:35px" src="assets/img/shields/'+ e.features[0].properties.Route +'.png"/>';
-     //     var quakeLocation = e.features[0].properties.Location ;
-          
-          
-      //    var quakeDate = new Date(e.features[0].properties.time);
 
           if (e.features.length > 0) {
 
             var content = '<img src="assets/img/shields/'+ e.features[0].properties.Route +'.png"/>'+ e.features[0].properties.Location;
             // Display the magnitude, location, and time in the sidebar
             magDisplay.innerHTML = content;
-         //   locDisplay.textContent = quakeLocation;
-
-       //     dateDisplay.textContent = quakeDate;
 
             // When the mouse moves over the earthquakes-viz layer, update the
             // feature state for the feature under the mouse
@@ -245,8 +206,6 @@ map.on('load', function () {
             }
 
             quakeID = e.features[0].id;
-         
-         //   signhoverIN (e.features[0].properties.Route);
         
             map.setFeatureState(
               {
@@ -281,10 +240,7 @@ map.on('load', function () {
           // Reset the cursor style
           map.getCanvas().style.cursor = '';
         });
-
-
-
-                
+      
     });
 
 
