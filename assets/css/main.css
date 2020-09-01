@@ -82,13 +82,16 @@ grey2 - #f7f7f7
     -webkit-filter: drop-shadow(0px 0px 15px #ff5c3e) brightness(130%);
     }
     #header-link{
-    display: flex;
-    align-items: center;
     color: white;
     text-decoration: none;
     }
     #dvrpc-logo{
-        margin: 5px 0px 0px 0px;
+    margin: -15px 0px 0px 0px;
+    height:30px;
+    }
+     #idrum-logo{
+    margin: -15px 0px 0px 0px;
+    height:70px;
     }
     #header-link-text{
     font-size: 20px;
@@ -96,7 +99,7 @@ grey2 - #f7f7f7
     }
     .container-fluid{
     z-index: 30;
-    background: #005d68;
+    background: #5e6c7c;
     height: 60px;
     border-bottom: 3px solid #f7f7f7;
     }
@@ -107,7 +110,7 @@ grey2 - #f7f7f7
     padding: 5px;
     }
     .modal-dialog{
-    width:900px;
+    width:600px;
     }
     h1 {
     font-size:22px;

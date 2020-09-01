@@ -77,6 +77,13 @@
           speed: 0.5
       });
     }); 
+    document.getElementById('PA611B').addEventListener('click', function () {
+      map.flyTo({
+          center: [-75.1243709995,40.2996050002],
+          zoom: 13,
+          speed: 0.5
+      });
+    }); 
 // Chester
       document.getElementById('US001C').addEventListener('click', function () {
       map.flyTo({

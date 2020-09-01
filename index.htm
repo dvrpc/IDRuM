@@ -5,7 +5,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
     
-      <title>Detour Route Mapping</title>
+      <title>IDRuM</title>
 
       <!-- Latest compiled and minified CSS -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
@@ -44,10 +44,10 @@
                     </button>
 
                 <div class="navbar-brand">
-                    <a id="header-link" href="http://www.dvrpc.org" target="_blank">
-                    <img id="dvrpc-logo" src="assets/img/dvrpc_logo_small.png" alt="DVRPC logo"/>
-                    <p id="header-link-text">Detour Route Mapping</p>
-                    </a>
+                    <div>
+                    <a id="header-link" href="http://www.dvrpc.org" target="_blank"><img id="dvrpc-logo" src="assets/img/dvrpc_logo_small.png" alt="DVRPC logo"/></a>
+                    <img id="idrum-logo" src="assets/img/idrum.png" alt="idrum logo"/>
+                  </div>
                 </div>
 
                 </div>
@@ -109,6 +109,11 @@
                     <img src="assets/img/shields/PA309.png" class="legend-button shadowfilter" href='javascript:void(0);' id='PA309B'/>
                     </label>
                   </div>  
+                   <div class="legend-icons" >
+                    <label>
+                    <img src="assets/img/shields/PA611.png" class="legend-button shadowfilter" href='javascript:void(0);' id='PA611B'/>
+                    </label>
+                  </div> 
               </div> 
           </div>
         </div>
@@ -269,36 +274,21 @@
         <div class="modal fade" id="aboutModal">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header"  style='border: none;'>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h5 class="modal-title">Detour Route Mapping</h5>
+                            <h5 class="modal-title">Interactive Detour Route Mapping</h5>
                         </div>
                         <div class="modal-body">
-                             <ul id="aboutTabs" class="nav nav-tabs">
-                                <li class="active"><a href="#about" data-toggle="tab"><i class="icon-info-sign"></i>&nbsp;About</a></li> 
-                                <li><a href="#contact" data-toggle="tab"><i class="icon-exclamation-sign"></i>&nbsp;Contact</a></li>
-                                <li><a href="#disclaimer" data-toggle="tab"><i class="icon-exclamation-sign"></i>&nbsp;Disclaimer</a></li>
-                            </ul>
-                            <div id="aboutTabsContent" class="tab-content" style="padding-top: 10px;">
-                                <div class="tab-pane fade active in" id="about">
-                                     <div><p>DVRPC in partnership with PennDOT District 6, has developed the web-based Interactive Detour Route Mapping (IDRuM) application that organizes all existing PennDOT Emergency Detour Routes within the Southeastern Pennsylvania region into a manageable, easy-to-use interface. DVRPC has worked with PennDOT District 6 to update and reformat the detour route maps for all limited access highways within the region, replacing outdated paper maps with digital PDF maps.IDRuM compiles the PDF detour maps into a simple, "point-and-click" application.</p> 
-                                    </div>                                 
-                                </div>
-                                <div class="tab-pane fade" id="contact"> 
-                                     <p>
-                                        <h4>For more information, contact:</h4>
-                                            <address>
-                                            People who know about roads and stuff<br/>
-                                            </address>
-                                        </p>  
-                                </div>
-                                <div class="tab-pane fade" id="disclaimer"> 
-                                        <p>This web page is a public resource of general information. The Delaware Valley Regional Planning Commission (DVRPC) makes no warranty, 
-                                        representation, or guarantee as to the content, sequence, accuracy, timeliness, or completeness of any of the spatial data or database 
-                                        information provided herein. DVRPC and partner state, local, and other agencies shall assume no liability for errors, omissions, or 
-                                        inaccuracies in the information provided regardless of how caused; or any decision made or action taken or not taken by any person relying 
-                                        on any information or data furnished within.</p>
-                                </div>
+                            <div><p>DVRPC in partnership with PennDOT District 6, has developed the web-based Interactive Detour Route Mapping (IDRuM) application that organizes all existing PennDOT Emergency Detour Routes within the Southeastern Pennsylvania region into a manageable, easy-to-use interface. DVRPC has worked with PennDOT District 6 to update and reformat the detour route maps for all limited access highways within the region, replacing outdated paper maps with digital PDF maps.IDRuM compiles the PDF detour maps into a simple, "point-and-click" application.</p> 
+              
+                            <p>
+                            <h4>For more information, contact:</h4>
+                            <address>People who know about roads and stuff<br/>
+                            </address>
+
+                            <p>This web page is a public resource of general information. The Delaware Valley Regional Planning Commission (DVRPC) makes no warranty, representation, or guarantee as to the content, sequence, accuracy, timeliness, or completeness of any of the spatial data or database information provided herein. DVRPC and partner state, local, and other agencies shall assume no liability for errors, omissions, or inaccuracies in the information provide regardless of how caused; or any decision made or action taken or not taken by any person relying on any information or data furnished within.</p>
+
+                            <p>For more information, visit <a href="https://www.dvrpc.org/Policies/" target="_blank" class="one">https://www.dvrpc.org/Policies/</a></span></p>
                             </div>
                         </div>
                     </div><!-- /.modal-content -->

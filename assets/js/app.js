@@ -1,7 +1,7 @@
   var geojson;
   var TTI, cnty;
   var hoveredStateId = null;
- // $('#aboutModal').modal('show');
+  $('#aboutModal').modal('show');
      // Target the span elements used in the sidebar
   var magDisplay = document.getElementById('mag');
   var locDisplay = document.getElementById('loc');
@@ -30,8 +30,9 @@
   // This adds the map
     var map = new mapboxgl.Map({
         container: 'map', 
-    //   style: 'mapbox://styles/mapbox/light-v9', 
-        style:'mapbox://styles/crvanpollard/ck5fpyqti0v971itf7edp2eyd',
+       style: 'mapbox://styles/mapbox/light-v9', 
+       // also uncomment line 168 admin-bg
+    //    style:'mapbox://styles/crvanpollard/ck5fpyqti0v971itf7edp2eyd',
         center: [-75.4, 40.15], 
         zoom: 8,
       //  bearing: 0, // Rotate Philly ~9° off of north, thanks Billy Penn.
@@ -163,9 +164,9 @@ map.on('load', function () {
             ]
           }
           //  firstSymbolId
-   //     });
+        });
        //  }
- }, 'admin-1-boundary-bg');
+// }, 'admin-1-boundary-bg');
 
          map.on("click", function(e) {
           var features = map.queryRenderedFeatures(e.point, { layers: ["route-viz"] });
