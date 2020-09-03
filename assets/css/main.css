@@ -86,16 +86,21 @@ grey2 - #f7f7f7
     text-decoration: none;
     }
     #full-logo{
-    margin: -25px 0px 0px 0px;
-    height:100px;
+    margin: -27px 0px 0px 0px;
+    height:110px;
     }
     #dvrpc-logo{
     margin: -15px 0px 0px 0px;
     height:30px;
     }
-     #idrum-logo{
+    #idrum-logo{
     margin: -15px 0px 0px 0px;
     height:70px;
+    }
+    .idrum-logo{
+    height: 90px;
+    margin-right: 5px;
+    float:left;
     }
     #header-link-text{
     font-size: 20px;
