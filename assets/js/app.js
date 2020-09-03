@@ -192,7 +192,7 @@ map.on('load', function () {
 
           if (e.features.length > 0) {
 
-            var content = '<img src="assets/img/shields/'+ e.features[0].properties.Route +'.png"/>'+ e.features[0].properties.Location;
+            var content = '<img src="assets/img/shields/'+ e.features[0].properties.Route +'.png" alt="Highway Route Shield"/>'+ e.features[0].properties.Location;
             // Display the magnitude, location, and time in the sidebar
             magDisplay.innerHTML = content;
 

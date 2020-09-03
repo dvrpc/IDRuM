@@ -17,7 +17,7 @@ grey2 - #f7f7f7
     }
    #container {
     height: 100%;
-    margin-top: 50px;
+    margin-top: 70px;
     margin-right: -4px;
     padding-bottom: 50px;
     }
@@ -85,6 +85,10 @@ grey2 - #f7f7f7
     color: white;
     text-decoration: none;
     }
+    #full-logo{
+    margin: -25px 0px 0px 0px;
+    height:100px;
+    }
     #dvrpc-logo{
     margin: -15px 0px 0px 0px;
     height:30px;
@@ -99,8 +103,8 @@ grey2 - #f7f7f7
     }
     .container-fluid{
     z-index: 30;
-    background: #5e6c7c;
-    height: 60px;
+    background: #74747F;
+    height: 70px;
     border-bottom: 3px solid #f7f7f7;
     }
     .mapboxgl-ctrl-attrib.compact {
