@@ -1,5 +1,5 @@
   var geojson;
-  var TTI, cnty;
+  var TTI, cnty,mask;
   var hoveredStateId = null;
   $('#aboutModal').modal('show');
      // Target the span elements used in the sidebar
@@ -74,8 +74,9 @@ map.on('load', function () {
             break;
             }
             }
+           
             // Grey Mask
-            map.addLayer({
+     /*      map.addLayer({
               "id": "county2",
               "type": "fill",
               "source": {
@@ -92,7 +93,7 @@ map.on('load', function () {
               //["==","dvrpc","Yes"]
               ["all",["!=","name","Chester"],["!=","name","Bucks"],["!=","name","Delaware"],["!=","name","Montgomery"],["!=","name","Philadelphia"]]
             });
-
+*/
             map.addSource('cnty', {
             'type': 'geojson',
                'data':"https://arcgis.dvrpc.org/portal/rest/services/Boundaries/CountyBoundaries/FeatureServer/0/query?where=co_name+%3D+%27Bucks%27+or+co_name+%3D+%27Chester%27+or+co_name+%3D+%27Delaware%27+or+co_name+%3D+%27Montgomery%27+or+co_name+%3D+%27Philadelphia%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson"
@@ -240,6 +241,27 @@ map.on('load', function () {
           // Reset the cursor style
           map.getCanvas().style.cursor = '';
         });
+
+        map.addSource('mask', {
+            'type': 'geojson',
+         //       'data':'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/7/query?where=name+%3D+%27PA309B%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson'
+           'data':'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/7/query?where=1%3D1&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson'
+           });
+            
+            map.addLayer({
+            'id': 'filter-routes',
+            'type': 'fill',
+            'source': 'mask',
+            'layout': {},
+                "layout": {},
+              paint: {
+              // 'fill-outline-color': '#f7c59f',
+               'fill-color': 'rgba(0,0,0,0.1)'
+           },
+             "filter": 
+          //    ["==","name","MASK"]
+              ["all",["!=","name","I076M"],["!=","name","PA309B"],["!=","name","PA611B"]]
+            });
       
     });
 
