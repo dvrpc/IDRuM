@@ -109,7 +109,7 @@ map.on('load', function () {
             }
             });
 
-                   map.addSource('mask', {
+       /* map.addSource('mask', {
             'type': 'geojson',
          //       'data':'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/7/query?where=name+%3D+%27PA309B%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson'
            'data':'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/9/query?where=1%3D1&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson'
@@ -129,7 +129,7 @@ map.on('load', function () {
           //    ["==","name","MASK"]
               ["all",["==","DET_ID","BUC_PA309"]]
             });
-
+*/
         // When the map loads, add the data from the USGS earthquake API as a source
         map.addSource('earthquakes', {
           'type': 'geojson',
@@ -139,7 +139,7 @@ map.on('load', function () {
         
         map.addSource('route', {
           'type': 'geojson',
-          'data':" https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/3/query?where=1%3D1&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=pgeojson",
+          'data':" https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/4/query?where=1%3D1&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=pgeojson",
           'generateId': true // This ensures that all features have unique IDs
         });
 
@@ -170,7 +170,7 @@ map.on('load', function () {
          map.on("click", function(e) {
           var features = map.queryRenderedFeatures(e.point, { layers: ["route-viz"] });
           if (features.length) {
-            window.open('https://www.dvrpc.org/asp/idrum/Online/PDF/PA/PADist06/' + features[0].properties.CNTY +'/'+ features[0].properties.State + features[0].properties.County + features[0].properties.Route +'/'+ features[0].properties.Det_ID +'.pdf', '_blank');
+            window.open('https://www.dvrpc.org/asp/idrum/Online/PDF/PA/PADist06/' + features[0].properties.County +'/'+ features[0].properties.State + features[0].properties.CNTY + features[0].properties.Route +'/'+ features[0].properties.Det_ID +'.pdf', '_blank');
              }
         });
 
@@ -214,7 +214,11 @@ map.on('load', function () {
 
           if (e.features.length > 0) {
 
-            var content = '<img src="assets/img/shields/'+ e.features[0].properties.Route +'.png" alt="Highway Route Shield"/>'+ e.features[0].properties.Location;
+            var content = '<img src="assets/img/shields/'+ e.features[0].properties.Route +'.png" alt="Highway Route Shield"/>'
+            + e.features[0].properties.Location
+            +' - '
+            +e.features[0].properties.County
+            +' County';
             // Display the magnitude, location, and time in the sidebar
             magDisplay.innerHTML = content;
 
