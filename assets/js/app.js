@@ -109,10 +109,10 @@ map.on('load', function () {
             }
             });
 
-       /* map.addSource('mask', {
+        map.addSource('mask', {
             'type': 'geojson',
          //       'data':'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/7/query?where=name+%3D+%27PA309B%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson'
-           'data':'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/9/query?where=1%3D1&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson'
+           'data':'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/8/query?where=1%3D1&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson'
            });
             
             map.addLayer({
@@ -129,7 +129,7 @@ map.on('load', function () {
           //    ["==","name","MASK"]
               ["all",["==","DET_ID","BUC_PA309"]]
             });
-*/
+
         // When the map loads, add the data from the USGS earthquake API as a source
         map.addSource('earthquakes', {
           'type': 'geojson',
