@@ -78,9 +78,16 @@
               - Select a County Name or Route Shield below to quickly zoom to that loaction or simple use the map to find your area of intrest.</p>
         </div>
 
+        <!-- Place holder for Remove Filter -->
+       <!--   <div class="radio" style="margin-left:30px"><label><input id='none' type='radio' name="optradio" value='none' onClick='javascript:void(0);toggleLayer(none);' >Remove Filter</label></div> -->
+
+            <h4 class="text-primary button5" style="margin:0px 0px 0px 15px;text-align: center;display:none" id='none' onClick='javascript:void(0);toggleLayer(none);'><strong class="text-uppercase"> Remove Filter </strong></h4>
+
         <div class="panel panel-primary">
           <div class="panel-body">
-            <h4 class="text-on-pannel text-primary button5" href='javascript:void(0);' id='zoomtobucks'><strong class="text-uppercase"> Bucks </strong></h4>
+                 
+            <h4 class="text-on-pannel text-primary button5" id='BUC' onClick='javascript:void(0);toggleLayer(this.id);'><strong class="text-uppercase"> Bucks </strong></h4>
+             
              <!-- Legend -->
               <div id="legend-stack">
                   <div class="legend-icons">
@@ -88,6 +95,11 @@
                     <img src="assets/img/shields/I095.png" class="legend-button shadowfilter" href='javascript:void(0);' id='I095B' alt="I-95 Highway Route Shield"/>
                     </label>
                   </div>  
+                    <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/I295.png" class="legend-button shadowfilter" href='javascript:void(0);' id='I295B' alt="I-295 Highway Route Shield"/>
+                    </label>
+                  </div> 
                   <div class="legend-icons">
                     <label>
                     <img src="assets/img/shields/US001.png" class="legend-button shadowfilter" href='javascript:void(0);' id='US001B' alt="US 1 Highway Route Shield"/>
@@ -125,7 +137,7 @@
         <!-- Start Shield Panel -->
         <div class="panel panel-primary p2">
           <div class="panel-body">
-            <h4 class="text-on-pannel text-primary button5" href='javascript:void(0);' id='zoomtochester'><strong class="text-uppercase"> Chester </strong></h4>
+            <h4 class="text-on-pannel text-primary button5" id='CHE' onClick='javascript:void(0);toggleLayer(this.id);'><strong class="text-uppercase"> Chester </strong></h4>
               <div id="legend-stack">
                   <div class="legend-icons">
                     <label>
@@ -154,7 +166,7 @@
         <!-- Start Shield Panel -->
         <div class="panel panel-primary p2">
           <div class="panel-body">
-            <h4 class="text-on-pannel text-primary button5" href='javascript:void(0);' id='zoomtodelaware'><strong class="text-uppercase"> Delaware </strong></h4>
+            <h4 class="text-on-pannel text-primary button5" id='DEL' onClick='javascript:void(0);toggleLayer(this.id);'><strong class="text-uppercase"> Delaware </strong></h4>
               <div id="legend-stack">
                   <div class="legend-icons">
                     <label>
@@ -183,7 +195,7 @@
         <!-- Start Shield Panel -->
         <div class="panel panel-primary p2">
           <div class="panel-body">
-            <h4 class="text-on-pannel text-primary button5" href='javascript:void(0);' id='zoomtomontgomery'><strong class="text-uppercase"> Montgomery</strong></h4>
+            <h4 class="text-on-pannel text-primary button5" id='MON' onClick='javascript:void(0);toggleLayer(this.id);'><strong class="text-uppercase"> Montgomery</strong></h4>
               <div id="legend-stack">
                   <div class="legend-icons">
                     <label>
@@ -222,7 +234,7 @@
       <!-- Start Shield Panel -->
         <div class="panel panel-primary p2">
           <div class="panel-body">
-            <h4 class="text-on-pannel text-primary button5" href='javascript:void(0);' id='zoomtophiladelphia'><strong class="text-uppercase"> Philadelphia </strong></h4>
+            <h4 class="text-on-pannel text-primary button5" id='PHI' onClick='javascript:void(0);toggleLayer(this.id);'><strong class="text-uppercase"> Philadelphia </strong></h4>
               <div id="legend-stack">
                   <div class="legend-icons">
                     <label>

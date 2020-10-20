@@ -1,33 +1,48 @@
 // Zoom to look up
-    document.getElementById('zoomtobucks').addEventListener('click', function () {
+   document.getElementById('none').addEventListener('click', function () {
+      $("div h4:contains('Remove Filter')").hide();
+        map.flyTo({
+            center: [-75.4, 40.15], 
+            zoom: 8,
+            speed: 0.5
+        });
+
+    });
+
+    document.getElementById('BUC').addEventListener('click', function () {
+           $("div h4:contains('Remove Filter')").show();
         map.flyTo({
             center: [-75.106870407001679,40.336933676997319], 
             zoom: 9,
             speed: 0.5
         });
     });
-    document.getElementById('zoomtochester').addEventListener('click', function () {
+    document.getElementById('CHE').addEventListener('click', function () {
+               $("div h4:contains('Remove Filter')").show();
       map.flyTo({
           center: [-75.748451366853885,39.973209680949878], 
           zoom: 9,
           speed: 0.5
       });
     });
-      document.getElementById('zoomtodelaware').addEventListener('click', function () {
+      document.getElementById('DEL').addEventListener('click', function () {
+                 $("div h4:contains('Remove Filter')").show();
       map.flyTo({
           center: [-75.398773932333029,39.916606269175929], 
           zoom: 10,
           speed: 0.5
       });
     });
-      document.getElementById('zoomtomontgomery').addEventListener('click', function () {
+      document.getElementById('MON').addEventListener('click', function () {
+                 $("div h4:contains('Remove Filter')").show();
       map.flyTo({
           center: [-75.367334983140267,40.210850123794955], 
           zoom: 9,
           speed: 0.5
       });
     });
-    document.getElementById('zoomtophiladelphia').addEventListener('click', function () {
+    document.getElementById('PHI').addEventListener('click', function () {
+               $("div h4:contains('Remove Filter')").show();
       map.flyTo({
           center: [-75.13417520195253,40.007663105527399], 
           zoom: 10,
@@ -38,6 +53,13 @@
     document.getElementById('I095B').addEventListener('click', function () {
       map.flyTo({
           center: [-74.9001449995,40.158555],
+          zoom: 11,
+          speed: 0.5
+      });
+    });
+      document.getElementById('I295B').addEventListener('click', function () {
+      map.flyTo({
+          center: [-74.879212,40.1930960001],
           zoom: 11,
           speed: 0.5
       });
