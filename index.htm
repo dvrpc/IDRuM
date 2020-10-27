@@ -79,55 +79,72 @@
         </div>
 
         <!-- Place holder for Remove Filter -->
-       <!--   <div class="radio" style="margin-left:30px"><label><input id='none' type='radio' name="optradio" value='none' onClick='javascript:void(0);toggleLayer(none);' >Remove Filter</label></div> -->
+       <!--   <div class="radio" style="margin-left:30px"><label><input id='none' type='radio' name="optradio" value='none' onClick='javascript:void(0);toggleLayer(none);' >Remove Filter</label></div> 
+            <div class="session" style="margin-left: 30px;">
+        <h2>Day of the week</h2>
+        <div class="row" id="filters">
+          <input
+            id="all"
+            type="radio"
+            name="toggle"
+            value="all"
+            checked="checked"
+          />
+          <label for="none">NONE</label>
+          <input id="BUC" type="radio" name="toggle" value="BUC" />
+          <label for="BUC">BUC</label>
+          <input id="CHE" type="radio" name="toggle" value="CHE" />
+          <label for="CHE">CHE</label>
+        </div>
+      </div>-->
 
-            <h4 class="text-primary button5" style="margin:0px 0px 0px 15px;text-align: center;display:none" id='none' onClick='javascript:void(0);toggleLayer(none);'><strong class="text-uppercase"> Remove Filter </strong></h4>
+            <h4 class="text-primary button5" style="margin:0px 0px 0px 15px;text-align: center;display:none" id='PA' onClick='javascript:void(0);toggleLayer(this.id);'><strong class="text-uppercase"> Remove Filter </strong></h4>
 
         <div class="panel panel-primary">
           <div class="panel-body">
                  
-            <h4 class="text-on-pannel text-primary button5" id='BUC' onClick='javascript:void(0);toggleLayer(this.id);'><strong class="text-uppercase"> Bucks </strong></h4>
+            <h4 class="text-on-pannel text-primary button5" id='BUC' onClick='toggleLayer(this.id);'><strong class="text-uppercase"> Bucks </strong></h4>
              
              <!-- Legend -->
               <div id="legend-stack">
                   <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/I095.png" class="legend-button shadowfilter" href='javascript:void(0);' id='I095B' alt="I-95 Highway Route Shield"/>
+                    <img src="assets/img/shields/I095.png" class="legend-button shadowfilter" id='BUC_I095' onClick='toggleLayer(this.id);'  alt="I-95 Highway Route Shield"/>
                     </label>
                   </div>  
                     <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/I295.png" class="legend-button shadowfilter" href='javascript:void(0);' id='I295B' alt="I-295 Highway Route Shield"/>
+                    <img src="assets/img/shields/I295.png" class="legend-button shadowfilter" id='BUC_I295' onClick='toggleLayer(this.id);'  alt="I-295 Highway Route Shield"/>
                     </label>
                   </div> 
                   <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/US001.png" class="legend-button shadowfilter" href='javascript:void(0);' id='US001B' alt="US 1 Highway Route Shield"/>
+                    <img src="assets/img/shields/US001.png" class="legend-button shadowfilter" id='BUC_US001' onClick='toggleLayer(this.id);' alt="US 1 Highway Route Shield"/>
                     </label>
                   </div> 
                   <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/US013.png" class="legend-button shadowfilter" href='javascript:void(0);' id='US013B'alt="US 13 Highway Route Shield"/>
+                    <img src="assets/img/shields/US013.png" class="legend-button shadowfilter" id='BUC_US013' onClick='toggleLayer(this.id);' alt="US 13 Highway Route Shield"/>
                     </label>
                   </div> 
                   <div class="legend-icons" >
                     <label>
-                    <img src="assets/img/shields/US202.png" class="legend-button shadowfilter" href='javascript:void(0);' id='US202B'alt="US 202 Highway Route Shield"/>
+                    <img src="assets/img/shields/US202.png" class="legend-button shadowfilter" id='BUC_US202' onClick='toggleLayer(this.id);' alt="US 202 Highway Route Shield"/>
                     </label>
                   </div>  
                    <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/PA063.png" class="legend-button shadowfilter" href='javascript:void(0);' id='PA063B' alt="PA 63 Highway Route Shield"/>
+                    <img src="assets/img/shields/PA063.png" class="legend-button shadowfilter" id='BUC_PA063' onClick='toggleLayer(this.id);' alt="PA 63 Highway Route Shield"/>
                     </label>
                   </div> 
                   <div class="legend-icons" >
                     <label>
-                    <img src="assets/img/shields/PA309.png" class="legend-button shadowfilter" href='javascript:void(0);' id='PA309B' alt="PA 309 Highway Route Shield"/>
+                    <img src="assets/img/shields/PA309.png" class="legend-button shadowfilter" id='BUC_PA309' onClick='toggleLayer(this.id);'  alt="PA 309 Highway Route Shield"/>
                     </label>
                   </div>  
                    <div class="legend-icons" >
                     <label>
-                    <img src="assets/img/shields/PA611.png" class="legend-button shadowfilter" href='javascript:void(0);' id='PA611B' alt="PA 611 Highway Route Shield"/>
+                    <img src="assets/img/shields/PA611.png" class="legend-button shadowfilter" id='BUC_PA611' onClick='toggleLayer(this.id);'  alt="PA 611 Highway Route Shield"/>
                     </label>
                   </div> 
               </div> 
@@ -137,26 +154,26 @@
         <!-- Start Shield Panel -->
         <div class="panel panel-primary p2">
           <div class="panel-body">
-            <h4 class="text-on-pannel text-primary button5" id='CHE' onClick='javascript:void(0);toggleLayer(this.id);'><strong class="text-uppercase"> Chester </strong></h4>
+            <h4 class="text-on-pannel text-primary button5" id='CHE' onClick='toggleLayer(this.id);'><strong class="text-uppercase"> Chester </strong></h4>
               <div id="legend-stack">
                   <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/US001.png" class="legend-button shadowfilter" href='javascript:void(0);' id='US001C'alt="US 1 Highway Route Shield"/>
+                    <img src="assets/img/shields/US001.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='CHE_US001'alt="US 1 Highway Route Shield"/>
                     </label>
                   </div>  
                   <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/US030.png" class="legend-button shadowfilter" href='javascript:void(0);' id='US030C'alt="US 30 Highway Route Shield"/>
+                    <img src="assets/img/shields/US030.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='CHE_US030'alt="US 30 Highway Route Shield"/>
                     </label>
                   </div> 
                   <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/US202.png" class="legend-button shadowfilter" href='javascript:void(0);' id='US202C' alt="US 202 Highway Route Shield"/>
+                    <img src="assets/img/shields/US202.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='CHE_US202' alt="US 202 Highway Route Shield"/>
                     </label>
                   </div> 
                   <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/PA100.png" class="legend-button shadowfilter" href='javascript:void(0);' id='PA100C' alt="PA 100 Highway Route Shield"/>
+                    <img src="assets/img/shields/PA100.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='CHE_PA100' alt="PA 100 Highway Route Shield"/>
                     </label>
                   </div>  
               </div> 
@@ -166,26 +183,26 @@
         <!-- Start Shield Panel -->
         <div class="panel panel-primary p2">
           <div class="panel-body">
-            <h4 class="text-on-pannel text-primary button5" id='DEL' onClick='javascript:void(0);toggleLayer(this.id);'><strong class="text-uppercase"> Delaware </strong></h4>
+            <h4 class="text-on-pannel text-primary button5" id='DEL' onClick='toggleLayer(this.id);'><strong class="text-uppercase"> Delaware </strong></h4>
               <div id="legend-stack">
                   <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/I095.png" class="legend-button shadowfilter" href='javascript:void(0);' id='I095D' alt="I-95 Highway Route Shield"/>
+                    <img src="assets/img/shields/I095.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='DEL_I095' alt="I-95 Highway Route Shield"/>
                     </label>
                   </div>  
                   <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/I476.png" class="legend-button shadowfilter" href='javascript:void(0);' id='I476D' alt="I-476 Highway Route Shield"/>
+                    <img src="assets/img/shields/I476.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='DEL_I476' alt="I-476 Highway Route Shield"/>
                     </label>
                   </div> 
                   <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/US001.png" class="legend-button shadowfilter" href='javascript:void(0);' id='US001D' alt="US 1 Highway Route Shield"/>
+                    <img src="assets/img/shields/US001.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='DEL_US001' alt="US 1 Highway Route Shield"/>
                     </label>
                   </div> 
                   <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/US322.png" class="legend-button shadowfilter" href='javascript:void(0);' id='US322D' alt="US 322 Highway Route Shield"/>
+                    <img src="assets/img/shields/US322.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='DEL_US322' alt="US 322 Highway Route Shield"/>
                     </label>
                   </div>  
               </div> 
@@ -195,36 +212,36 @@
         <!-- Start Shield Panel -->
         <div class="panel panel-primary p2">
           <div class="panel-body">
-            <h4 class="text-on-pannel text-primary button5" id='MON' onClick='javascript:void(0);toggleLayer(this.id);'><strong class="text-uppercase"> Montgomery</strong></h4>
+            <h4 class="text-on-pannel text-primary button5" id='MON' onClick='toggleLayer(this.id);'><strong class="text-uppercase"> Montgomery</strong></h4>
               <div id="legend-stack">
                   <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/I076.png" class="legend-button shadowfilter" href='javascript:void(0);' id='I076M'alt="I-76 Highway Route Shield"/>
+                    <img src="assets/img/shields/I076.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='MON_I076'alt="I-76 Highway Route Shield"/>
                     </label>
                   </div>  
                   <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/I476.png" class="legend-button shadowfilter" href='javascript:void(0);' id='I476M'alt="I-476 Highway Route Shield"/>
+                    <img src="assets/img/shields/I476.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='MON_I476'alt="I-476 Highway Route Shield"/>
                     </label>
                   </div> 
                   <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/US202.png" class="legend-button shadowfilter" href='javascript:void(0);' id='US202M' alt="US 202 Highway Route Shield"/>
+                    <img src="assets/img/shields/US202.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='MON_US202' alt="US 202 Highway Route Shield"/>
                     </label>
                   </div> 
                   <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/US422.png" class="legend-button shadowfilter" href='javascript:void(0);' id='US422M' alt="US 422 Highway Route Shield"/>
+                    <img src="assets/img/shields/US422.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='MON_US422' alt="US 422 Highway Route Shield"/>
                     </label>
                   </div>  
                   <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/PA100.png" class="legend-button shadowfilter" href='javascript:void(0);' id='PA100M' alt="PA 100 Highway Route Shield"/>
+                    <img src="assets/img/shields/PA100.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='MON_PA100' alt="PA 100 Highway Route Shield"/>
                     </label>
                   </div> 
                   <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/PA309.png" class="legend-button shadowfilter" href='javascript:void(0);' id='PA309M' alt="PA 309 Highway Route Shield"/>
+                    <img src="assets/img/shields/PA309.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='MON_PA309' alt="PA 309 Highway Route Shield"/>
                     </label>
                   </div>  
               </div> 
@@ -234,36 +251,36 @@
       <!-- Start Shield Panel -->
         <div class="panel panel-primary p2">
           <div class="panel-body">
-            <h4 class="text-on-pannel text-primary button5" id='PHI' onClick='javascript:void(0);toggleLayer(this.id);'><strong class="text-uppercase"> Philadelphia </strong></h4>
+            <h4 class="text-on-pannel text-primary button5" id='PHI' onClick='toggleLayer(this.id);'><strong class="text-uppercase"> Philadelphia </strong></h4>
               <div id="legend-stack">
                   <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/I076.png" class="legend-button shadowfilter" href='javascript:void(0);' id='I076P'alt="I-76 Highway Route Shield"/>
+                    <img src="assets/img/shields/I076.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='PHI_I076'alt="I-76 Highway Route Shield"/>
                     </label>
                   </div>  
                   <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/I095.png" class="legend-button shadowfilter" href='javascript:void(0);' id='I095P' alt="I-95 Highway Route Shield"/>
+                    <img src="assets/img/shields/I095.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='PHI_I095' alt="I-95 Highway Route Shield"/>
                     </label>
                   </div> 
                   <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/I676.png" class="legend-button shadowfilter" href='javascript:void(0);' id='I676P' alt="I-676 Highway Route Shield"/>
+                    <img src="assets/img/shields/I676.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='PHI_I676' alt="I-676 Highway Route Shield"/>
                     </label>
                   </div> 
                   <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/US001.png" class="legend-button shadowfilter" href='javascript:void(0);' id='US001P' alt="US 1 Highway Route Shield"/>
+                    <img src="assets/img/shields/US001.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='PHI_US001' alt="US 1 Highway Route Shield"/>
                     </label>
                   </div>  
                   <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/PA063.png" class="legend-button shadowfilter" href='javascript:void(0);' id='PA063P' alt="PA 63 Highway Route Shield"/>
+                    <img src="assets/img/shields/PA063.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='PHI_PA063' alt="PA 63 Highway Route Shield"/>
                     </label>
                   </div> 
                     <div class="legend-icons">
                     <label>
-                    <img src="assets/img/shields/Bridges.png" class="legend-button shadowfilter" href='javascript:void(0);' id='PAPHICB' alt="City Bridge Icon"/>
+                    <img src="assets/img/shields/Bridges.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='PHI_Bridges' alt="City Bridge Icon"/>
                     </label>
                   </div>   
               </div> 
@@ -284,7 +301,7 @@
             <i class="fa fa-circle other"></i>Limited Access Intersection
           </div>
            <!-- Zoom -->
-        <a href='javascript:void(0);' id='zoomtoregion'></a>   
+        <a onClick='toggleLayer(this.id);' id='zoomtoregion'></a>   
     </div>
    
 </div>      

@@ -3,35 +3,19 @@
  
   var hoveredStateId = null;
 //  $('#aboutModal').modal('show');
-     // Target the span elements used in the sidebar
+  // Target the span elements used in the sidebar
   var magDisplay = document.getElementById('mag');
   var locDisplay = document.getElementById('loc');
 
-
-  var BUC, CHE, DEL, MON, PHI ;
-//var info = document.getElementById('selectedFeatures');
   var layer;
+
   function toggleLayer(e){
    //  console.log(e);
-    var layer = e;
-    map.setLayoutProperty('BUC', 'visibility', 'none');
-    map.setLayoutProperty('CHE', 'visibility', 'none');
-    map.setLayoutProperty('DEL', 'visibility', 'none');
-    map.setLayoutProperty('MON', 'visibility', 'none');
-    map.setLayoutProperty('PHI', 'visibility', 'none');
-    if ( layer === 'none' ) 
-    {
-       map.setLayoutProperty('BUC', 'visibility', 'none');
-       map.setLayoutProperty('CHE', 'visibility', 'none');
-       map.setLayoutProperty('DEL', 'visibility', 'none');
-       map.setLayoutProperty('MON', 'visibility', 'none');
-       map.setLayoutProperty('PHI', 'visibility', 'none');
-    } else {
-       map.setLayoutProperty(layer,'visibility', 'visible');
-       return layer;
-    }
-};
-  
+      var layer = e;
+      map.setFilter('mask', ['==', ['get', 'Det_ID'], e]);
+      return layer;
+  };
+
  $(document).on("mouseover", ".feature-row", function(e) {
   // alert("Hello! I am an alert box!!");
    //     highlight.clearLayers().addLayer(L.circleMarker([$(this).attr("lat"), $(this).attr("lng")], highlightStyle));
@@ -136,102 +120,23 @@ map.on('load', function () {
             });
             
             map.addLayer({
-            id: 'BUC',
+            id: 'mask',
             type: 'fill',
             source: {
                   'type': 'geojson',
                   'data':'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/8/query?where=1%3D1&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson'
             },
             layout: {
-             "visibility":"none",
+             "visibility":"visible",
               },
             paint: {
               // 'fill-outline-color': '#f7c59f',
                'fill-color': 'rgba(0,0,0,0.1)'
             },
              filter: 
-          //    ["==","name","MASK"]
-              ["all",["==","Det_ID","BUC"]]
+                 ["all",["==","Det_ID","PA"]]
             });
 
-            map.addLayer({
-            id: 'CHE',
-            type: 'fill',
-            source: {
-                  'type': 'geojson',
-                  'data':'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/8/query?where=1%3D1&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson'
-            },
-            layout: {
-             "visibility":"none",
-              },
-            paint: {
-              // 'fill-outline-color': '#f7c59f',
-               'fill-color': 'rgba(0,0,0,0.1)'
-            },
-             filter: 
-          //    ["==","name","MASK"]
-              ["all",["==","Det_ID","CHE"]]
-            });
-
-
-            map.addLayer({
-            id: 'DEL',
-            type: 'fill',
-            source: {
-                  'type': 'geojson',
-                  'data':'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/8/query?where=1%3D1&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson'
-            },
-            layout: {
-             "visibility":"none",
-              },
-            paint: {
-              // 'fill-outline-color': '#f7c59f',
-               'fill-color': 'rgba(0,0,0,0.1)'
-            },
-             filter: 
-          //    ["==","name","MASK"]
-              ["all",["==","Det_ID","DEL"]]
-            });
-
-
-            map.addLayer({
-            id: 'MON',
-            type: 'fill',
-            source: {
-                  'type': 'geojson',
-                  'data':'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/8/query?where=1%3D1&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson'
-            },
-            layout: {
-             "visibility":"none",
-              },
-            paint: {
-              // 'fill-outline-color': '#f7c59f',
-               'fill-color': 'rgba(0,0,0,0.1)'
-            },
-             filter: 
-          //    ["==","name","MASK"]
-              ["all",["==","Det_ID","MON"]]
-            });
-
-
-            map.addLayer({
-            id: 'PHI',
-            type: 'fill',
-            source: {
-                  'type': 'geojson',
-                  'data':'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/8/query?where=1%3D1&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson'
-            },
-            layout: {
-             "visibility":"none",
-              },
-            paint: {
-              // 'fill-outline-color': '#f7c59f',
-               'fill-color': 'rgba(0,0,0,0.1)'
-            },
-             filter: 
-          //    ["==","name","MASK"]
-              ["all",["==","Det_ID","PHI"]]
-            });
 
         // When the map loads, add the data from the USGS earthquake API as a source
         map.addSource('earthquakes', {
