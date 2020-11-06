@@ -12,8 +12,31 @@
   function toggleLayer(e){
    //  console.log(e);
       var layer = e;
+ 
       map.setFilter('mask', ['==', ['get', 'Det_ID'], e]);
-      return layer;
+  //    return layer;
+       if ( layer === 'MON_US422' ) {
+             //         filterDay = ['match', ['get', 'Day'], ['Sat', 'Sun'], false, true];
+         map.setFilter('county2', ['match', ['get', 'name'], ['Berks', 'Chester', 'Delaware', 'Montgomery','Bucks','Philadelphia'], false, true]
+        );
+        } else if ( layer === 'CHE_US422' ) {
+             //         filterDay = ['match', ['get', 'Day'], ['Sat', 'Sun'], false, true];
+         map.setFilter('county2', ['match', ['get', 'name'], ['Berks', 'Chester', 'Delaware', 'Montgomery','Bucks','Philadelphia'], false, true]
+        );
+        } else if ( layer === 'MON_PA100' ) {
+             //         filterDay = ['match', ['get', 'Day'], ['Sat', 'Sun'], false, true];
+         map.setFilter('county2', ['match', ['get', 'name'], ['Berks', 'Chester', 'Delaware', 'Montgomery','Bucks','Philadelphia'], false, true]
+        );
+        } else if ( layer === 'CHE_US001' ) {
+             //         filterDay = ['match', ['get', 'Day'], ['Sat', 'Sun'], false, true];
+         map.setFilter('county2', ['match', ['get', 'name'], ['Cecil', 'Chester', 'Delaware', 'Montgomery','Bucks','Philadelphia'], false, true]
+        );
+        } else {
+         map.setFilter('county2', ['match', ['get', 'name'], ['Chester', 'Delaware', 'Montgomery','Bucks','Philadelphia'], false, true]);
+        //  map.setFilter('county2',["all",["!=","name","Chester"],["!=","name","Bucks"],["!=","name","Delaware"],["!=","name","Montgomery"],["!=","name","Philadelphia"]
+        //, e]);
+       return layer;
+    }
   };
 
  $(document).on("mouseover", ".feature-row", function(e) {
@@ -124,7 +147,7 @@ map.on('load', function () {
             type: 'fill',
             source: {
                   'type': 'geojson',
-                  'data':'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/8/query?where=1%3D1&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson'
+                  'data':'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/7/query?where=1%3D1&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson'
             },
             layout: {
              "visibility":"visible",
@@ -147,7 +170,7 @@ map.on('load', function () {
         
         map.addSource('route', {
           'type': 'geojson',
-          'data':" https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/4/query?where=1%3D1&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=pgeojson",
+          'data':" https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/3/query?where=1%3D1&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=pgeojson",
           'generateId': true // This ensures that all features have unique IDs
         });
 
