@@ -31,6 +31,10 @@
              //         filterDay = ['match', ['get', 'Day'], ['Sat', 'Sun'], false, true];
          map.setFilter('county2', ['match', ['get', 'name'], ['Cecil', 'Chester', 'Delaware', 'Montgomery','Bucks','Philadelphia'], false, true]
         );
+          } else if ( layer === 'DEL_I095' ) {
+             //         filterDay = ['match', ['get', 'Day'], ['Sat', 'Sun'], false, true];
+         map.setFilter('county2', ['match', ['get', 'name'], ['New Castle', 'Chester', 'Delaware', 'Montgomery','Bucks','Philadelphia'], false, true]
+        );
         } else {
          map.setFilter('county2', ['match', ['get', 'name'], ['Chester', 'Delaware', 'Montgomery','Bucks','Philadelphia'], false, true]);
         //  map.setFilter('county2',["all",["!=","name","Chester"],["!=","name","Bucks"],["!=","name","Delaware"],["!=","name","Montgomery"],["!=","name","Philadelphia"]
