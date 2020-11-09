@@ -2,7 +2,7 @@
   var TTI, cnty, mask;
  
   var hoveredStateId = null;
-//  $('#aboutModal').modal('show');
+  $('#aboutModal').modal('show');
   // Target the span elements used in the sidebar
   var magDisplay = document.getElementById('mag');
   var locDisplay = document.getElementById('loc');
