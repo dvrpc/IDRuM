@@ -13,7 +13,7 @@ grey2 - #f7f7f7
     margin: 0px;
     }
     body {
-    overflow: hidden ;
+    overflow: auto ;
     }
    #container {
     height: 100%;
@@ -49,6 +49,9 @@ grey2 - #f7f7f7
       border: 1px solid #ff5c3e;
       border-radius: 8px;
       cursor: pointer;
+    }
+    .text-uppercase{
+        color:#fff5ef;
     }
     .panel {
       /* for text on pannel */
@@ -270,6 +273,7 @@ div#row span img {
       display: block;
       margin: 5px 0px 5px 5px;
       max-height: 100%;
+      cursor: pointer;
     }
     #inforesults {
         margin: 5px 0px 0px 10px;
