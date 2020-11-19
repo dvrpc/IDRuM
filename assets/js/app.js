@@ -66,9 +66,9 @@
   // This adds the map
     var map = new mapboxgl.Map({
         container: 'map', 
-     //  style: 'mapbox://styles/mapbox/light-v9', 
-       // also uncomment line 168 admin-bg
-        style:'mapbox://styles/crvanpollard/ck5fpyqti0v971itf7edp2eyd',
+       style: 'mapbox://styles/mapbox/light-v9', 
+       // also uncomment line 203 (or near there) admin-bg
+   //     style:'mapbox://styles/crvanpollard/ck5fpyqti0v971itf7edp2eyd',
         center: [-75.4, 40.15], 
         zoom: 8,   
         attributionControl: false
@@ -190,7 +190,7 @@ map.on('load', function () {
           paint: {
              "line-color": [ 'case',
             ['boolean', ['feature-state', 'hover'], false],
-             '#FFFF00', '#FFA500'
+             '#FFFF00', '#F5921D'
             ],
              "line-width": [ 'case',
             ['boolean', ['feature-state', 'hover'], false],
@@ -198,9 +198,9 @@ map.on('load', function () {
             ]
           }
           //  firstSymbolId
-     //   });
+        });
        //  }
- }, 'admin-1-boundary-bg');
+ // }, 'admin-1-boundary-bg');
 
          map.on("click", function(e) {
           var features = map.queryRenderedFeatures(e.point, { layers: ["route-viz"] });
@@ -216,7 +216,7 @@ map.on('load', function () {
           'source': 'earthquakes',
           'paint': {
             'circle-radius': 3,
-            'circle-stroke-color': '#ffdb99',
+            'circle-stroke-color': '#FF5702',
             'circle-stroke-width': .3,
             'circle-color':'#ff4500'
           }

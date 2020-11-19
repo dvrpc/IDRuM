@@ -51,7 +51,7 @@ grey2 - #f7f7f7
       cursor: pointer;
     }
     .text-uppercase{
-        color:#fff5ef;
+      color:#000;
     }
     .panel {
       /* for text on pannel */
@@ -65,32 +65,33 @@ grey2 - #f7f7f7
     .panel-body {
       padding-top: 15px !important;
       padding-bottom: 0px !important;
+      border: 1.25px solid #ff5703;
     }
     .panel-primary{
        border-color:  #ff5c3e;
     }
     .legend-button{
-      height: 35px;
-      width: 35px;
+      height: 37px;
+      width: 37px;
       background: transparent;
     }
     .shadowfilter {
     -webkit-filter: drop-shadow(0px 0px 0px #fff);
     -webkit-transition: all 0.5s linear;
     -o-transition: all 0.5s linear;
-    transition: all 0.5s linear;
+    transition: all 0.3s linear;
 
     }
     .shadowfilter:hover {
-    -webkit-filter: drop-shadow(0px 0px 15px #ff5c3e) brightness(130%);
+    -webkit-filter: drop-shadow(0px 0px 10px rgba(255, 87, 3, .95)) ;
     }
-    #header-link{
+   /* #header-link{
     color: white;
     text-decoration: none;
-    }
+    } */
     #full-logo{
-    margin: -27px 0px 0px 0px;
-    height:110px;
+    margin: 0px 0px 0px 0px;
+    height:70px;
     }
     #dvrpc-logo{
     margin: -15px 0px 0px 0px;
@@ -111,9 +112,15 @@ grey2 - #f7f7f7
     }
     .container-fluid{
     z-index: 30;
-    background: #74747F;
-    height: 70px;
+    height: 83px;
     border-bottom: 3px solid #f7f7f7;
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='#312867', endColorstr='#396ab2');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType = 1, startColorstr = '#312867', endColorstr = '#396ab2')";
+     background-image: linear-gradient(to bottom, #74747F 0%, #74747F 64%, #595963 64%, #595963 100%);
+    font-weight: 700;
+    font-size: 22px;
+    color: #fff;
+    white-space: nowrap;
     }
     .mapboxgl-ctrl-attrib.compact {
     margin: 10px 10px 10px 10px;
@@ -121,8 +128,18 @@ grey2 - #f7f7f7
     .modal-footer {
     padding: 5px;
     }
+    #about_footer {
+    font-style: italic;
+    background-color: #b9def0;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    background-image: linear-gradient(to bottom,#d9edf7 0,#b9def0 100%);
+    }
+     #about_footer p{
+    margin: 10px;
+    }
     .modal-dialog{
-    width:600px;
+    width:800px;
     }
     h1 {
     font-size:22px;
@@ -271,7 +288,7 @@ div#row span img {
     }   
     .legend-icons img {
       display: block;
-      margin: 5px 0px 5px 5px;
+      margin: 3px 1px 5px 5px;
       max-height: 100%;
       cursor: pointer;
     }
@@ -351,22 +368,22 @@ div#row span img {
 }
 
 .button5 {
-  background-color: #ff8c3e;
+  background-color: #F5921D;
   color: white;
-  border: 2px solid #ff5c3e;
+  border: 2px solid #ff5703;
 }
 
 .button5:hover {
-  background-color:#ff5c3e;
+  background-color:#FF5702;
   color: white;
 }
 .ct-existing {
-    color: #FFA500;
+    color: #F5921D;
     font-size: 25px;
     vertical-align: middle;
 }
 .other {
-    color: #ff4500;
+    color: #FF5703;
     display: inline-block;
     line-height: 25px;
     width: 25px;
