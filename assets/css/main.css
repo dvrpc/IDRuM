@@ -262,11 +262,11 @@ div#row span img {
     font-family: sans-serif;
     margin: 15px 10px 0px 5px;
     padding: 5px;
-    width: 250px;
-    border: 2px solid black;
+    width: 275px;
+    border: 2px solid #6a7474;
     font-size: 14px;
     color: #222;
-    background-color: #fff;
+    background-color: #BDD9F9;
     border-radius: 3px;
     z-index: 1001;         
   }

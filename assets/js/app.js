@@ -5,7 +5,7 @@
   $('#aboutModal').modal('show');
   // Target the span elements used in the sidebar
   var magDisplay = document.getElementById('mag');
-  var locDisplay = document.getElementById('loc');
+  var shieldDisplay = document.getElementById('shield');
 
   var layer;
 
@@ -249,13 +249,15 @@ map.on('load', function () {
 
           if (e.features.length > 0) {
 
-            var content = '<img src="assets/img/shields/'+ e.features[0].properties.Route +'.png" alt="Highway Route Shield"/>'
-            + e.features[0].properties.Location
+          	 var Rshield = '<img src="assets/img/shields/'+ e.features[0].properties.Route +'.png" alt="Highway Route Shield"/>';
+
+            var content = e.features[0].properties.Location
             +' - '
             +e.features[0].properties.County
             +' County';
             // Display the magnitude, location, and time in the sidebar
             magDisplay.innerHTML = content;
+            shieldDisplay.innerHTML = Rshield;
 
             // When the mouse moves over the earthquakes-viz layer, update the
             // feature state for the feature under the mouse
@@ -298,6 +300,7 @@ map.on('load', function () {
    
           // Remove the information from the previously hovered feature from the sidebar
           magDisplay.innerHTML = '';
+          shieldDisplay.innerHTML ='Hover over an incident location for more information';
           // Reset the cursor style
           map.getCanvas().style.cursor = '';
         });
