@@ -1,34 +1,22 @@
-/*
-green - #5cd89f
-orange - #ff5c3e
-yellow - #ffd36e
-teal - #005d68
-grey - #545454
-grey2 - #f7f7f7
-*/    
 
-
-    html, body, #map, #sidebar {
+    html, body,  #container , #map, #sidebar {
     height: 100%;
     margin: 0px;
     }
-    body {
-    overflow: auto ;
-    }
-   #container {
+  /* #container {
     height: 100%;
-    margin-top: 70px;
-    margin-right: -4px;
-    padding-bottom: 50px;
+    margin: 75px -4px 0px 0px;
     }
+    */
     #map{
-    height: 100%;
-    margin: 0px;
     padding-left: 0px !important;
     }
     #sidebar {  
     border-right: 1px solid #E2E2E2;
     background-color:#f7f7f7;
+    overflow: auto ;
+    padding:10px;
+    margin-top:70px;
     }
     .navbar-brand {
     padding: 8px 15px;
@@ -171,9 +159,15 @@ grey2 - #f7f7f7
     clear:both;
     visibility:hidden;
     }
+    .mapboxgl-ctrl-top-right {
+    top: 0;
+    right: 0;
+    margin-top:90px;
+}
+
     #zoomtoregion{
     position: absolute;
-    top:110px;
+    top:200px;
     right:12px;
     z-index:100;
     background-color:white;
@@ -184,7 +178,7 @@ grey2 - #f7f7f7
     cursor: pointer;
     font-size:12px;
     text-decoration:none;
-    background-image: url(https://raw.githubusercontent.com/dvrpc/license-plate-survey/master/src/img/dvrpc_bug.png);
+    background-image: url(bug.png);
     background-size: 27px 27px;
      background-position: center; 
     background-repeat: no-repeat;
@@ -260,13 +254,13 @@ div#row span img {
    .quakeInfo {
     position: absolute;
     font-family: sans-serif;
-    margin: 15px 10px 0px 5px;
+    margin: 90px 10px 0px 5px;
     padding: 5px;
     width: 275px;
     border: 2px solid #6a7474;
     font-size: 14px;
-    color: #222;
-    background-color: #BDD9F9;
+    color: #fff;
+    background-color: #1931A5;
     border-radius: 3px;
     z-index: 1001;         
   }
@@ -377,19 +371,21 @@ div#row span img {
   background-color:#FF5702;
   color: white;
 }
-.ct-existing {
+.legend-incident {
     color: #F5921D;
     font-size: 25px;
     vertical-align: middle;
+    margin: -5px 5px 0px 0px;
 }
-.other {
+.legend-access {
     color: #FF5703;
     display: inline-block;
     line-height: 25px;
     width: 25px;
-    height: 25px;
+    height: 15px;
     text-align: center;
     vertical-align: middle;
+    margin: 0px 6px 0px 0px;
 }
 .one {
     color: #396ab2;
