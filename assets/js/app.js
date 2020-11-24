@@ -66,9 +66,9 @@
   // This adds the map
     var map = new mapboxgl.Map({
         container: 'map', 
-       style: 'mapbox://styles/mapbox/light-v9', 
+   //    style: 'mapbox://styles/mapbox/light-v9', 
        // also uncomment line 203 (or near there) admin-bg
-   //     style:'mapbox://styles/crvanpollard/ck5fpyqti0v971itf7edp2eyd',
+        style:'mapbox://styles/crvanpollard/ck5fpyqti0v971itf7edp2eyd',
         center: [-75.4, 40.15], 
         zoom: 8,   
         attributionControl: false
@@ -198,9 +198,9 @@ map.on('load', function () {
             ]
           }
           //  firstSymbolId
-        });
+     //   });
        //  }
- // }, 'admin-1-boundary-bg');
+  }, 'admin-1-boundary-bg');
 
          map.on("click", function(e) {
           var features = map.queryRenderedFeatures(e.point, { layers: ["route-viz"] });
