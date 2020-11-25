@@ -39,7 +39,7 @@
       cursor: pointer;
     }
     .text-uppercase{
-      color:#000;
+      color:#1931A5;
     }
     .panel {
       /* for text on pannel */
@@ -256,6 +256,7 @@ div#row span img {
     font-family: sans-serif;
     margin: 90px 10px 0px 5px;
     padding: 5px;
+    padding-left: 9px;
     width: 275px;
     border: 2px solid #6a7474;
     font-size: 14px;
